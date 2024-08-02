@@ -15,6 +15,8 @@
 		1A2E33D42C5BEBF200F63057 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33D32C5BEBF200F63057 /* MainViewController.swift */; };
 		1A2E33D62C5BEEC200F63057 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33D52C5BEEC200F63057 /* Resources.swift */; };
 		1A2E33DD2C5BF9B200F63057 /* RedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33DC2C5BF9B200F63057 /* RedHeaderView.swift */; };
+		1A2E33E02C5CFD5D00F63057 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33DF2C5CFD5D00F63057 /* LoadingViewController.swift */; };
+		1A2E33E32C5D06F600F63057 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33E22C5D06F600F63057 /* UIView + Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		1A2E33D32C5BEBF200F63057 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1A2E33D52C5BEEC200F63057 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		1A2E33DC2C5BF9B200F63057 /* RedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedHeaderView.swift; sourceTree = "<group>"; };
+		1A2E33DF2C5CFD5D00F63057 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		1A2E33E22C5D06F600F63057 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		1A2E33CD2C5BEBC200F63057 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1A2E33E12C5D06E500F63057 /* Extensions */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			children = (
 				1A2E33DE2C5BFA1300F63057 /* Cells */,
 				1A2E33D32C5BEBF200F63057 /* MainViewController.swift */,
+				1A2E33DF2C5CFD5D00F63057 /* LoadingViewController.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -111,6 +117,14 @@
 				1A2E33DC2C5BF9B200F63057 /* RedHeaderView.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		1A2E33E12C5D06E500F63057 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A2E33E22C5D06F600F63057 /* UIView + Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +201,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A2E33E02C5CFD5D00F63057 /* LoadingViewController.swift in Sources */,
 				1A2E33BE2C5BEAEA00F63057 /* ViewController.swift in Sources */,
+				1A2E33E32C5D06F600F63057 /* UIView + Ext.swift in Sources */,
 				1A2E33DD2C5BF9B200F63057 /* RedHeaderView.swift in Sources */,
 				1A2E33BA2C5BEAEA00F63057 /* AppDelegate.swift in Sources */,
 				1A2E33D62C5BEEC200F63057 /* Resources.swift in Sources */,

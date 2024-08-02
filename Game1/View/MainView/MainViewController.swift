@@ -82,7 +82,9 @@ class MainViewController: UIViewController {
         setupSV()
         setupSubviews()
         setupConstraints()
+        setupAnimation()
     }
+    
     
     private func setupSV() {
         mainSV.addArrangedSubview(playButton)
@@ -141,5 +143,49 @@ class MainViewController: UIViewController {
         ])
     }
     
+
+}
+
+//MARK: Animation UI
+extension MainViewController {
+    private func setupAnimation() {
+        headerView.alpha = 0
+        menuButton.alpha = 0
+        
+        playButton.alpha = 0
+        levelsButton.alpha = 0
+        settingButton.alpha = 0
+        
+        backView.alpha = 0
+        shopButton.alpha = 0
+        animateIntro()
+    }
+    
+    func animateIntro() {
+        // Анимация backView, shopButton и menuButton одновременно
+        UIView.animate(withDuration: 0.5, animations: {
+            self.backView.alpha = 1
+            self.shopButton.alpha = 1
+            self.menuButton.alpha = 1
+        }) { _ in
+            // После завершения первой анимации запускаем анимацию headerView
+            UIView.animate(withDuration: 0.5, animations: {
+                self.headerView.alpha = 1
+            }) { _ in
+                // После завершения анимации headerView по очереди запускаем анимации для остальных кнопок
+                UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+                    self.settingButton.alpha = 1
+                }, completion: { _ in
+                    UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+                        self.levelsButton.alpha = 1
+                    }, completion: { _ in
+                        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+                            self.playButton.alpha = 1
+                        })
+                    })
+                })
+            }
+        }
+    }
 
 }
