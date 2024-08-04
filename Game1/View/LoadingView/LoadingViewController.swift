@@ -17,6 +17,14 @@ class LoadingViewController: UIViewController {
         return view
     }()
     
+    private lazy var loaderView: LoaderView = {
+        let loaderView = LoaderView()
+        loaderView.translatesAutoresizingMaskIntoConstraints = false
+        loaderView.layer.cornerRadius = 8
+        loaderView.clipsToBounds = true
+        return loaderView
+    }()
+    
     private let logoImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: Resources.Images.crazyBallImage))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -33,6 +41,20 @@ class LoadingViewController: UIViewController {
         progressView.makeBordersColor(color: Resources.Colors.darkRedColor.cgColor)
         return progressView
     }()
+    
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            animateLoading()
+        }
+        
+        private func animateLoading() {
+//            UIView.animate(withDuration: 4.0, delay: 1.0) { [weak self] in
+//                guard let self else { return }
+//                self.loaderView.configure(100)
+//            }
+            self.loaderView.configure(50)
+        }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +71,7 @@ class LoadingViewController: UIViewController {
         view.addSubview(background)
         view.addSubview(logoImageView)
         view.addSubview(progressBar)
+        view.addSubview(loaderView)
     }
     
     
@@ -85,13 +108,18 @@ class LoadingViewController: UIViewController {
             
             progressBar.widthAnchor.constraint(equalToConstant: 320),
             progressBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            progressBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            progressBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
             progressBar.heightAnchor.constraint(equalToConstant: 23),
+            
+            loaderView.widthAnchor.constraint(equalToConstant: 320),
+            loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loaderView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            loaderView.heightAnchor.constraint(equalToConstant: 23),
         ])
     }
 
     private func startLoadingAnimation() {
-        progressBar.setProgress(0.0, animated: false)
+        progressBar.setProgress(0.5, animated: false)
         UIView.animate(withDuration: 4.0, animations: {
             self.progressBar.setProgress(1.0, animated: true)
         })
@@ -101,7 +129,7 @@ class LoadingViewController: UIViewController {
     }
     
     private func presentMainContent() {
-        // Переход на основной экран или загрузка основной информации
+//         Переход на основной экран или загрузка основной информации
         let mainViewController = MainViewController() // Ваш основной контроллер
         mainViewController.modalTransitionStyle = .crossDissolve
         mainViewController.modalPresentationStyle = .fullScreen

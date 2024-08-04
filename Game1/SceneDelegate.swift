@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
-        window?.rootViewController = LoadingViewController()
+        window?.rootViewController = SettingsViewController()
+//        window?.rootViewController = LoadingViewController()
+//        window?.rootViewController = LevelsViewController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

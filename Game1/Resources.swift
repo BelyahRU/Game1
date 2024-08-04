@@ -9,9 +9,20 @@ import Foundation
 import UIKit
 enum Resources {
     
+    enum Levels {
+        static let blockedLevel = "blockedLevel"
+    }
+    
+    enum RoundedView {
+        static let levelsLabel = "levelsLabel"
+        static let legsRoundedView = "legsRoundedView"
+        static let roundedView = "roundedView"
+    }
+    
     enum Images {
         static let redViewHeader = "redViewHeader"
         static let crazyBallImage = "crazyBallImage"
+        static let levelsView = "levelsView"
     }
     
     enum Back {
@@ -25,6 +36,12 @@ enum Resources {
         static let settingButton = "settingButton"
         static let menuButton = "menuButton"
         static let shopButton = "shopButton"
+        static let rateAppButton = "rateAppButton"
+        static let usagePolicyButton = "usagePolicyButton"
+        static let settingLabel = "settingLabel"
+        static let shareAppButton = "shareAppButton"
+        static let cancelButton = "cancelButton"
+        
     }
     
     enum RedHeaderView {

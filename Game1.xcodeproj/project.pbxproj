@@ -17,6 +17,16 @@
 		1A2E33DD2C5BF9B200F63057 /* RedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33DC2C5BF9B200F63057 /* RedHeaderView.swift */; };
 		1A2E33E02C5CFD5D00F63057 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33DF2C5CFD5D00F63057 /* LoadingViewController.swift */; };
 		1A2E33E32C5D06F600F63057 /* UIView + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33E22C5D06F600F63057 /* UIView + Ext.swift */; };
+		1A2E33E72C5D1EA300F63057 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33E62C5D1EA300F63057 /* SettingsViewController.swift */; };
+		1A2E33E92C5FE55800F63057 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33E82C5FE55800F63057 /* SettingsView.swift */; };
+		1A2E33EB2C5FEDB500F63057 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33EA2C5FEDB500F63057 /* MainView.swift */; };
+		1A2E33ED2C5FEE0E00F63057 /* MainView + Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33EC2C5FEE0E00F63057 /* MainView + Animation.swift */; };
+		1A2E33EF2C5FEFF700F63057 /* SettingView + Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33EE2C5FEFF700F63057 /* SettingView + Animation.swift */; };
+		1A2E33F22C5FFD1200F63057 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33F12C5FFD1200F63057 /* LoaderView.swift */; };
+		1A2E33F52C60096B00F63057 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33F42C60096B00F63057 /* LevelsViewController.swift */; };
+		1A2E33F72C60097800F63057 /* LevelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33F62C60097800F63057 /* LevelsView.swift */; };
+		1A2E33FC2C6019B500F63057 /* LevelsVC + CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33FB2C6019B500F63057 /* LevelsVC + CollectionView.swift */; };
+		1A2E33FE2C601B3700F63057 /* LevelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33FD2C601B3700F63057 /* LevelCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +42,16 @@
 		1A2E33DC2C5BF9B200F63057 /* RedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedHeaderView.swift; sourceTree = "<group>"; };
 		1A2E33DF2C5CFD5D00F63057 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		1A2E33E22C5D06F600F63057 /* UIView + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Ext.swift"; sourceTree = "<group>"; };
+		1A2E33E62C5D1EA300F63057 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1A2E33E82C5FE55800F63057 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1A2E33EA2C5FEDB500F63057 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		1A2E33EC2C5FEE0E00F63057 /* MainView + Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainView + Animation.swift"; sourceTree = "<group>"; };
+		1A2E33EE2C5FEFF700F63057 /* SettingView + Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingView + Animation.swift"; sourceTree = "<group>"; };
+		1A2E33F12C5FFD1200F63057 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
+		1A2E33F42C60096B00F63057 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
+		1A2E33F62C60097800F63057 /* LevelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsView.swift; sourceTree = "<group>"; };
+		1A2E33FB2C6019B500F63057 /* LevelsVC + CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LevelsVC + CollectionView.swift"; sourceTree = "<group>"; };
+		1A2E33FD2C601B3700F63057 /* LevelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +109,10 @@
 		1A2E33CE2C5BEBC800F63057 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1A2E33F82C6014DD00F63057 /* Cells */,
+				1A2E33F32C60095500F63057 /* LevelsView */,
+				1A2E33E52C5D1E9500F63057 /* SettingsView */,
+				1A2E33E42C5D1E8D00F63057 /* LoadingView */,
 				1A2E33D22C5BEBE700F63057 /* MainView */,
 			);
 			path = View;
@@ -106,7 +130,8 @@
 			children = (
 				1A2E33DE2C5BFA1300F63057 /* Cells */,
 				1A2E33D32C5BEBF200F63057 /* MainViewController.swift */,
-				1A2E33DF2C5CFD5D00F63057 /* LoadingViewController.swift */,
+				1A2E33EA2C5FEDB500F63057 /* MainView.swift */,
+				1A2E33EC2C5FEE0E00F63057 /* MainView + Animation.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -125,6 +150,51 @@
 				1A2E33E22C5D06F600F63057 /* UIView + Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1A2E33E42C5D1E8D00F63057 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				1A2E33F02C5FFD0800F63057 /* Cells */,
+				1A2E33DF2C5CFD5D00F63057 /* LoadingViewController.swift */,
+			);
+			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		1A2E33E52C5D1E9500F63057 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				1A2E33E62C5D1EA300F63057 /* SettingsViewController.swift */,
+				1A2E33E82C5FE55800F63057 /* SettingsView.swift */,
+				1A2E33EE2C5FEFF700F63057 /* SettingView + Animation.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		1A2E33F02C5FFD0800F63057 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1A2E33F12C5FFD1200F63057 /* LoaderView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1A2E33F32C60095500F63057 /* LevelsView */ = {
+			isa = PBXGroup;
+			children = (
+				1A2E33F62C60097800F63057 /* LevelsView.swift */,
+				1A2E33F42C60096B00F63057 /* LevelsViewController.swift */,
+				1A2E33FB2C6019B500F63057 /* LevelsVC + CollectionView.swift */,
+				1A2E33FD2C601B3700F63057 /* LevelCollectionViewCell.swift */,
+			);
+			path = LevelsView;
+			sourceTree = "<group>";
+		};
+		1A2E33F82C6014DD00F63057 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,14 +271,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A2E33ED2C5FEE0E00F63057 /* MainView + Animation.swift in Sources */,
+				1A2E33F72C60097800F63057 /* LevelsView.swift in Sources */,
 				1A2E33E02C5CFD5D00F63057 /* LoadingViewController.swift in Sources */,
 				1A2E33BE2C5BEAEA00F63057 /* ViewController.swift in Sources */,
 				1A2E33E32C5D06F600F63057 /* UIView + Ext.swift in Sources */,
 				1A2E33DD2C5BF9B200F63057 /* RedHeaderView.swift in Sources */,
 				1A2E33BA2C5BEAEA00F63057 /* AppDelegate.swift in Sources */,
+				1A2E33F52C60096B00F63057 /* LevelsViewController.swift in Sources */,
+				1A2E33EF2C5FEFF700F63057 /* SettingView + Animation.swift in Sources */,
+				1A2E33FE2C601B3700F63057 /* LevelCollectionViewCell.swift in Sources */,
+				1A2E33E92C5FE55800F63057 /* SettingsView.swift in Sources */,
 				1A2E33D62C5BEEC200F63057 /* Resources.swift in Sources */,
+				1A2E33FC2C6019B500F63057 /* LevelsVC + CollectionView.swift in Sources */,
+				1A2E33F22C5FFD1200F63057 /* LoaderView.swift in Sources */,
+				1A2E33EB2C5FEDB500F63057 /* MainView.swift in Sources */,
 				1A2E33BC2C5BEAEA00F63057 /* SceneDelegate.swift in Sources */,
 				1A2E33D42C5BEBF200F63057 /* MainViewController.swift in Sources */,
+				1A2E33E72C5D1EA300F63057 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
