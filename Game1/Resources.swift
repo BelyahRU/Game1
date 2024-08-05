@@ -23,6 +23,7 @@ enum Resources {
         static let redViewHeader = "redViewHeader"
         static let crazyBallImage = "crazyBallImage"
         static let levelsView = "levelsView"
+        static let levelView = "levelView"
     }
     
     enum Back {

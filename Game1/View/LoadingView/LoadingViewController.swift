@@ -44,16 +44,16 @@ class LoadingViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
-            animateLoading()
+//            animateLoading()
         }
         
-        private func animateLoading() {
-//            UIView.animate(withDuration: 4.0, delay: 1.0) { [weak self] in
-//                guard let self else { return }
-//                self.loaderView.configure(100)
-//            }
-            self.loaderView.configure(50)
-        }
+//        private func animateLoading() {
+////            UIView.animate(withDuration: 4.0, delay: 1.0) { [weak self] in
+////                guard let self else { return }
+////                self.loaderView.configure(100)
+////            }
+//            self.loaderView.configure(50)
+//        }
 
 
     override func viewDidLoad() {
@@ -111,10 +111,10 @@ class LoadingViewController: UIViewController {
             progressBar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
             progressBar.heightAnchor.constraint(equalToConstant: 23),
             
-            loaderView.widthAnchor.constraint(equalToConstant: 320),
-            loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loaderView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
-            loaderView.heightAnchor.constraint(equalToConstant: 23),
+//            loaderView.widthAnchor.constraint(equalToConstant: 320),
+//            loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            loaderView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+//            loaderView.heightAnchor.constraint(equalToConstant: 23),
         ])
     }
 

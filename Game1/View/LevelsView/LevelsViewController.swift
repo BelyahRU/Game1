@@ -10,6 +10,8 @@ import UIKit
 class LevelsViewController: UIViewController {
     
     let levelsView = LevelsView()
+    var cancelButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,7 @@ class LevelsViewController: UIViewController {
     private func configure() {
         setupUI()
         setupCollectionView()
+        setupButton()
     }
     
     private func setupUI() {
@@ -30,5 +33,18 @@ class LevelsViewController: UIViewController {
             levelsView.topAnchor.constraint(equalTo: view.topAnchor),
             levelsView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+}
+
+//MARK: Action
+extension LevelsViewController {
+    private func setupButton() {
+        cancelButton = levelsView.cancelButton
+        cancelButton.addTarget(self, action: #selector(cancelPressed), for: .touchUpInside)
+    }
+    
+    @objc
+    func cancelPressed() {
+        self.dismiss(animated: true)
     }
 }
