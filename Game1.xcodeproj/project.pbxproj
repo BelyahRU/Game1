@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A10776B2C612F1100F7DA30 /* Modak.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1A10776A2C612F1100F7DA30 /* Modak.ttf */; };
+		1A10776E2C6173D400F7DA30 /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A10776D2C6173D400F7DA30 /* PauseViewController.swift */; };
+		1A1077702C6173FC00F7DA30 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A10776F2C6173FC00F7DA30 /* PauseView.swift */; };
 		1A2E33BA2C5BEAEA00F63057 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33B92C5BEAEA00F63057 /* AppDelegate.swift */; };
 		1A2E33BC2C5BEAEA00F63057 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33BB2C5BEAEA00F63057 /* SceneDelegate.swift */; };
-		1A2E33BE2C5BEAEA00F63057 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33BD2C5BEAEA00F63057 /* ViewController.swift */; };
 		1A2E33C32C5BEAEC00F63057 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2E33C22C5BEAEC00F63057 /* Assets.xcassets */; };
 		1A2E33C62C5BEAEC00F63057 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1A2E33C52C5BEAEC00F63057 /* Base */; };
 		1A2E33D42C5BEBF200F63057 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33D32C5BEBF200F63057 /* MainViewController.swift */; };
@@ -33,10 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A10776A2C612F1100F7DA30 /* Modak.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Modak.ttf; path = "../../../Downloads/Modak 2/Modak.ttf"; sourceTree = "<group>"; };
+		1A10776D2C6173D400F7DA30 /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
+		1A10776F2C6173FC00F7DA30 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
 		1A2E33B62C5BEAEA00F63057 /* Game1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A2E33B92C5BEAEA00F63057 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A2E33BB2C5BEAEA00F63057 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1A2E33BD2C5BEAEA00F63057 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1A2E33C22C5BEAEC00F63057 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A2E33C52C5BEAEC00F63057 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A2E33C72C5BEAEC00F63057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +75,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A1077692C612EC200F7DA30 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1A10776C2C6173BE00F7DA30 /* PauseView */ = {
+			isa = PBXGroup;
+			children = (
+				1A10776D2C6173D400F7DA30 /* PauseViewController.swift */,
+				1A10776F2C6173FC00F7DA30 /* PauseView.swift */,
+			);
+			path = PauseView;
+			sourceTree = "<group>";
+		};
 		1A2E33AD2C5BEAEA00F63057 = {
 			isa = PBXGroup;
 			children = (
@@ -90,12 +110,13 @@
 		1A2E33B82C5BEAEA00F63057 /* Game1 */ = {
 			isa = PBXGroup;
 			children = (
+				1A10776A2C612F1100F7DA30 /* Modak.ttf */,
+				1A1077692C612EC200F7DA30 /* Fonts */,
 				1A2E33CD2C5BEBC200F63057 /* Model */,
 				1A2E33CE2C5BEBC800F63057 /* View */,
 				1A2E33CF2C5BEBCC00F63057 /* ViewModel */,
 				1A2E33B92C5BEAEA00F63057 /* AppDelegate.swift */,
 				1A2E33BB2C5BEAEA00F63057 /* SceneDelegate.swift */,
-				1A2E33BD2C5BEAEA00F63057 /* ViewController.swift */,
 				1A2E33C22C5BEAEC00F63057 /* Assets.xcassets */,
 				1A2E33C42C5BEAEC00F63057 /* LaunchScreen.storyboard */,
 				1A2E33C72C5BEAEC00F63057 /* Info.plist */,
@@ -115,6 +136,7 @@
 		1A2E33CE2C5BEBC800F63057 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1A10776C2C6173BE00F7DA30 /* PauseView */,
 				1A2E33FF2C61165600F63057 /* GameView */,
 				1A2E33F82C6014DD00F63057 /* Cells */,
 				1A2E33F32C60095500F63057 /* LevelsView */,
@@ -277,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A2E33C32C5BEAEC00F63057 /* Assets.xcassets in Resources */,
+				1A10776B2C612F1100F7DA30 /* Modak.ttf in Resources */,
 				1A2E33C62C5BEAEC00F63057 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,10 +316,11 @@
 				1A2E34052C6116C600F63057 /* GameScene.swift in Sources */,
 				1A2E33F72C60097800F63057 /* LevelsView.swift in Sources */,
 				1A2E33E02C5CFD5D00F63057 /* LoadingViewController.swift in Sources */,
-				1A2E33BE2C5BEAEA00F63057 /* ViewController.swift in Sources */,
+				1A10776E2C6173D400F7DA30 /* PauseViewController.swift in Sources */,
 				1A2E33E32C5D06F600F63057 /* UIView + Ext.swift in Sources */,
 				1A2E33DD2C5BF9B200F63057 /* RedHeaderView.swift in Sources */,
 				1A2E33BA2C5BEAEA00F63057 /* AppDelegate.swift in Sources */,
+				1A1077702C6173FC00F7DA30 /* PauseView.swift in Sources */,
 				1A2E33F52C60096B00F63057 /* LevelsViewController.swift in Sources */,
 				1A2E33EF2C5FEFF700F63057 /* SettingView + Animation.swift in Sources */,
 				1A2E33FE2C601B3700F63057 /* LevelCollectionViewCell.swift in Sources */,

@@ -9,6 +9,18 @@ import Foundation
 import UIKit
 enum Resources {
     
+    enum Game {
+        static let boxText = "boxText"
+    }
+    
+    enum GameBackgrounds {
+        static let bg1 = "bg1"
+        static let bg2 = "bg2"
+        static let bg3 = "bg3"
+        static let bg4 = "bg4"
+        static let bg5 = "bg5"
+    }
+    
     enum Levels {
         static let blockedLevel = "blockedLevel"
     }
@@ -24,6 +36,7 @@ enum Resources {
         static let crazyBallImage = "crazyBallImage"
         static let levelsView = "levelsView"
         static let levelView = "levelView"
+        static let pauseLabel = "pauseLabel"
     }
     
     enum Back {
@@ -42,6 +55,14 @@ enum Resources {
         static let settingLabel = "settingLabel"
         static let shareAppButton = "shareAppButton"
         static let cancelButton = "cancelButton"
+        
+        
+        //GameViewController
+        static let restartButton = "restartButton"
+        static let pauseButton = "pauseButton"
+        //PauseViewController
+        static let startButton = "startButton"
+        static let homeButton = "homeButton"
         
     }
     

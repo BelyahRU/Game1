@@ -12,8 +12,17 @@ class GameView: UIView {
     private let background: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = UIImage(named: Resources.Back.mainBackground)
         return view
+    }()
+    
+    private let levelLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Modak", size: 40)
+//        label.font = UIFont.systemFont(ofSize: 40)
+        label.text = "Level 1"
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     public let levelView: UIImageView = {
@@ -22,15 +31,26 @@ class GameView: UIView {
         return im
     }()
     
-    public let cancelButton: UIButton = {
+    public let pauseButton: UIButton = {
         let button = UIButton()
+        button.setImage(UIImage(named: Resources.Buttons.pauseButton), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: Resources.Buttons.cancelButton), for: .normal)
+        return button
+    }()
+    
+    public let restartButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: Resources.Buttons.restartButton), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     private lazy var backgroundsArray: [String] = [
-        
+        Resources.GameBackgrounds.bg1,
+        Resources.GameBackgrounds.bg2,
+        Resources.GameBackgrounds.bg3,
+        Resources.GameBackgrounds.bg4,
+        Resources.GameBackgrounds.bg5
     ]
         
     
@@ -50,13 +70,15 @@ class GameView: UIView {
     }
     
     private func setupLevelBackground() {
-        
+        background.image = UIImage(named: backgroundsArray.randomElement()!)
     }
     
     private func setupSubviews() {
         addSubview(background)
         addSubview(levelView)
-//        addSubview(cancelButton)
+        levelView.addSubview(levelLabel)
+        addSubview(pauseButton)
+        addSubview(restartButton)
     }
     
     private func setupConstraints() {
@@ -69,9 +91,20 @@ class GameView: UIView {
             levelView.widthAnchor.constraint(equalToConstant: 323),
             levelView.heightAnchor.constraint(equalToConstant: 88),
             levelView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            levelView.topAnchor.constraint(equalTo: self.topAnchor, constant: 64)
+            levelView.topAnchor.constraint(equalTo: self.topAnchor, constant: 64),
             
+            levelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            levelLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 80),
             
+            pauseButton.widthAnchor.constraint(equalToConstant: 51),
+            pauseButton.heightAnchor.constraint(equalToConstant: 51),
+            pauseButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -48),
+            pauseButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -124),
+            
+            restartButton.widthAnchor.constraint(equalToConstant: 51),
+            restartButton.heightAnchor.constraint(equalToConstant: 51),
+            restartButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -48),
+            restartButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 124),
         ])
     }
 }

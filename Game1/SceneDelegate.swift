@@ -24,6 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = LoadingViewController()
 //        window?.rootViewController = LevelsViewController()
         window?.rootViewController = GameViewController()
+//        window?.rootViewController = PauseViewController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
