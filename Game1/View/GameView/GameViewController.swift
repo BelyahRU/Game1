@@ -5,7 +5,6 @@
 //  Created by Александр Андреев on 05.08.2024.
 //
 
-import Foundation
 import UIKit
 import SpriteKit
 
@@ -13,73 +12,70 @@ protocol PauseViewControllerDelegate: AnyObject {
     func resumeGame()
 }
 
-final class GameViewController: UIViewController {
+final class GameViewController: UIViewController, GameSceneDelegate, PauseViewControllerDelegate {
 
-    private var scene: GameScene!
-    
+    public var scene: GameScene!
     public var blurEffectView: UIVisualEffectView!
-    
+
     public let gameView = GameView()
-    
     public var pauseButton: UIButton!
     public var restartButton: UIButton!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupScene()
+    public var currentLevel: Int = 10 {
+        didSet {
+            loadLevel()
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButtons()
         configure()
+        loadLevel()
     }
-    
+
     private func setupBlur() {
-        let blurEffect = UIBlurEffect(style: .regular) // Используем стиль, который можно настроить
+        let blurEffect = UIBlurEffect(style: .regular)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        // Настроить прозрачность размытости, чтобы сделать эффект менее заметным
-        blurEffectView.alpha = 0.5 // Уменьшить прозрачность
+        blurEffectView.alpha = 0.5
     }
-    
+
     private func setupScene() {
         let skView = SKView(frame: .zero)
         skView.translatesAutoresizingMaskIntoConstraints = false
         gameView.addSubview(skView)
-        
-        // Включаем поддержку прозрачности
+
         skView.backgroundColor = .clear
         skView.ignoresSiblingOrder = true
-        
+
         NSLayoutConstraint.activate([
             skView.leadingAnchor.constraint(equalTo: gameView.leadingAnchor),
             skView.trailingAnchor.constraint(equalTo: gameView.trailingAnchor),
             skView.topAnchor.constraint(equalTo: gameView.topAnchor, constant: 100),
             skView.bottomAnchor.constraint(equalTo: gameView.bottomAnchor, constant: -100)
         ])
-        
-        // Установим размер сцены с учетом отступов
-        skView.layoutIfNeeded() // Обновляем layout для получения корректных размеров
+
+        skView.layoutIfNeeded()
         let sceneSize = CGSize(width: skView.bounds.width, height: skView.bounds.height)
         scene = GameScene(size: sceneSize)
         scene.scaleMode = .resizeFill
+        scene.gameSceneDelegate = self
         skView.presentScene(scene)
     }
-    
+
     private func configure() {
         setupBlur()
         setupSubviews()
         setupConstraints()
-        
+        setupScene()
     }
-    
+
     private func setupSubviews() {
         view.addSubview(gameView)
     }
-    
+
     private func setupConstraints() {
         gameView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -89,58 +85,19 @@ final class GameViewController: UIViewController {
             gameView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
-}
 
-
-//MARK: Action
-extension GameViewController: PauseViewControllerDelegate {
-    public func setupButtons() {
+    func setupButtons() {
         pauseButton = gameView.pauseButton
         restartButton = gameView.restartButton
-        
+
         pauseButton.addTarget(self, action: #selector(pausePressed), for: .touchUpInside)
         restartButton.addTarget(self, action: #selector(restartPressed), for: .touchUpInside)
     }
     
-    @objc
-    func pausePressed() {
-        scene?.togglePause()
-        view.addSubview(blurEffectView)
-        
-        // Создание и отображение контроллера паузы
-        let pauseVC = PauseViewController()
-        pauseVC.delegate = self
-        pauseVC.modalPresentationStyle = .overCurrentContext
-        pauseVC.modalTransitionStyle = .crossDissolve
-        present(pauseVC, animated: true, completion: nil)
-    }
-    
-    // MARK: - PauseViewControllerDelegate
-    func resumeGame() {
-        blurEffectView.removeFromSuperview()
-        scene?.togglePause() // Возобновите игру
+    private func loadLevel() {
+        gameView.levelLabel.text = "Level \(currentLevel)"
+        scene?.configure(for: currentLevel)
     }
 
-    
-    @objc
-    func restartPressed() {
-        restartGame()
-    }
-    
-    private func restartGame() {
-        // Убедитеждаемся, что skView присутствует
-        guard let skView = gameView.subviews.compactMap({ $0 as? SKView }).first else {
-            print("SKView not found!")
-            return
-        }
-        
-        // Создаем новую сцену
-        let newScene = GameScene(size: skView.bounds.size)
-        newScene.scaleMode = .resizeFill
-        
-        scene = newScene
-        skView.presentScene(scene)
-    }
 
 }
-

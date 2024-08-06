@@ -9,8 +9,23 @@ import Foundation
 import UIKit
 enum Resources {
     
+    enum GameOver {
+        static let backView = "backView"
+        static let gameOverLabel = "gameOverLabel"
+        static let confetie = "confetie"
+        static let moneyView = "moneyView"
+        static let star = "star"
+        
+        enum LevelViews {
+            static let level1Star = "level1Star"
+            static let level2Star = "level2Star"
+            static let level3Star = "level3Star"
+        }
+    }
+    
     enum Game {
         static let boxText = "boxText"
+        static let redBlock = "redBlock"
     }
     
     enum GameBackgrounds {

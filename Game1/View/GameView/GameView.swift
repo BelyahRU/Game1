@@ -15,7 +15,7 @@ class GameView: UIView {
         return view
     }()
     
-    private let levelLabel: UILabel = {
+    public var levelLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Modak", size: 40)
 //        label.font = UIFont.systemFont(ofSize: 40)

@@ -1,0 +1,89 @@
+%PDF-1.7
+
+1 0 obj
+  << /Length 2 0 R
+     /Range [ 0.000000 1.000000 0.000000 1.000000 0.000000 1.000000 ]
+     /Domain [ 0.000000 1.000000 ]
+     /FunctionType 4
+  >>
+stream
+{  0.662745 exch 0.007843 exch 0.058824 exch dup 0.000000 gt { exch pop exch pop exch pop dup 0.000000 sub 0.309804 mul 0.662745 add exch dup 0.000000 sub 0.007843 mul 0.007843 add exch dup 0.000000 sub 0.082353 mul 0.058824 add exch } if dup 1.000000 gt { exch pop exch pop exch pop 0.972549 exch 0.015686 exch 0.141176 exch } if pop }
+endstream
+endobj
+
+2 0 obj
+  336
+endobj
+
+3 0 obj
+  << /Pattern << /P1 << /Matrix [ 0.000000 22.999939 -22.999939 -0.000000 22.999939 -0.000031 ]
+                        /Shading << /Coords [ 0.000000 0.000000 1.000000 0.000000 ]
+                                    /ColorSpace /DeviceRGB
+                                    /Function 1 0 R
+                                    /Domain [ 0.000000 1.000000 ]
+                                    /ShadingType 2
+                                    /Extend [ true true ]
+                                 >>
+                        /PatternType 2
+                        /Type /Pattern
+                     >> >> >>
+endobj
+
+4 0 obj
+  << /Filter /FlateDecode
+     /Length 5 0 R
+  >>
+stream
+xí•1OÃ0…wÿŠÌHuc'ãX[˜‘U¤¤´â÷sN”÷®JÊÂJp¾«ß½»³Ûíãñû#ŸŸî‹‡³å[:›Oùs¶Ÿ¢œ¬–1,Ò`¶û·ËåøuÊJÛ½+Îédw»y5(míZÚ¢²»Öï_ÍÁv^%ãK?¿÷‚›I©VØ»•DÂ’èÇ'Ë’Ò S!¨\%ƒÀz0,–!$Õ2˜îMgŞÍÉÖ‚ÿMÎ2`X,C¸Ùä×;éò_.FiëX;×°ŠcvWºØLw¤òOŸª–XšEìÃ¼ê)±
+µ@'ÍüÊ:sBà«áÔ¿SJ¦„Æ9%\cã@`ÊóFAµıV´3xØ@¦QlbÏıŠut‹ğ`v6Ä²•Ñ‚a±A ­§%t¶
+~×VóÂ«V`‘º`Ù±æy5{xôem}]¨°Öq¹Ö¤4ÇÓÚFn°s
+ë“3"™Èà)«ÂèT²ñ\ç`—Xi¸0…ãÄØ%]KÄŞMõ‘@i¼pÊ¡èÓX.â§ù’›"ß°€ºySÖ¨½&RBurÙÌ˜†`†H!šÉÆ§ƒù(•q
+endstream
+endobj
+
+5 0 obj
+  466
+endobj
+
+6 0 obj
+  << /Annots []
+     /Type /Page
+     /MediaBox [ 0.000000 0.000000 210.000000 23.000000 ]
+     /Resources 3 0 R
+     /Contents 4 0 R
+     /Parent 7 0 R
+  >>
+endobj
+
+7 0 obj
+  << /Kids [ 6 0 R ]
+     /Count 1
+     /Type /Pages
+  >>
+endobj
+
+8 0 obj
+  << /Pages 7 0 R
+     /Type /Catalog
+  >>
+endobj
+
+xref
+0 9
+0000000000 65535 f
+0000000010 00000 n
+0000000530 00000 n
+0000000552 00000 n
+0000001178 00000 n
+0000001728 00000 n
+0000001750 00000 n
+0000001924 00000 n
+0000001998 00000 n
+trailer
+<< /ID [ (some) (id) ]
+   /Root 8 0 R
+   /Size 9
+>>
+startxref
+2057
+%%EOF
