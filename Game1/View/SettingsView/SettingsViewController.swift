@@ -9,13 +9,16 @@ import Foundation
 import UIKit
 class SettingsViewController: UIViewController {
     
+    // MARK: - Properties
     private let settingView = SettingsView()
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
+    // MARK: - Methods
     private func configure() {
         setupUI()
         setupTargets()

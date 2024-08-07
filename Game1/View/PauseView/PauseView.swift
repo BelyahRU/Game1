@@ -10,6 +10,7 @@ import UIKit
 
 class PauseView: UIView {
     
+    // MARK: - Properties
     private let pauseLabel: UIImageView = {
         let im = UIImageView()
         im.image = UIImage(named: Resources.Images.pauseLabel)
@@ -57,6 +58,7 @@ class PauseView: UIView {
         return button
     }()
     
+    // MARK: - Initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
@@ -67,6 +69,7 @@ class PauseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
     private func configure() {
         setupSubviews()
         setupConstraints()

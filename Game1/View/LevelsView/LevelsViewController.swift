@@ -9,15 +9,18 @@ import Foundation
 import UIKit
 class LevelsViewController: UIViewController {
     
+    // MARK: - Properties
     let levelsView = LevelsView()
+    let viewModel = LevelsViewModel()
     var cancelButton: UIButton!
     
-    
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
+    // MARK: - Methods
     private func configure() {
         setupUI()
         setupCollectionView()

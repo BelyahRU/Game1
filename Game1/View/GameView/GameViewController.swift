@@ -13,7 +13,8 @@ protocol PauseViewControllerDelegate: AnyObject {
 }
 
 final class GameViewController: UIViewController, GameSceneDelegate, PauseViewControllerDelegate {
-
+    
+    // MARK: - Properties
     public var scene: GameScene!
     public var blurEffectView: UIVisualEffectView!
 
@@ -27,19 +28,38 @@ final class GameViewController: UIViewController, GameSceneDelegate, PauseViewCo
         }
     }
 
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupButtons()
         configure()
-        loadLevel()
     }
-
+    
+    // MARK: - Methods
+    private func configure() {
+        setupButtons() // настройка таргетов для кнопок
+        setupBlur() // установка блюра для паузы и окончания игры
+        setupUI() // настройка gameView
+        setupScene() //Настройка сцены
+        loadLevel() // загрузка уровня
+    }
+    
     private func setupBlur() {
         let blurEffect = UIBlurEffect(style: .regular)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blurEffectView.alpha = 0.5
+    }
+    
+    private func setupUI() {
+        view.addSubview(gameView)
+        gameView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            gameView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            gameView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            gameView.topAnchor.constraint(equalTo: view.topAnchor),
+            gameView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
     }
 
     private func setupScene() {
@@ -65,28 +85,7 @@ final class GameViewController: UIViewController, GameSceneDelegate, PauseViewCo
         skView.presentScene(scene)
     }
 
-    private func configure() {
-        setupBlur()
-        setupSubviews()
-        setupConstraints()
-        setupScene()
-    }
-
-    private func setupSubviews() {
-        view.addSubview(gameView)
-    }
-
-    private func setupConstraints() {
-        gameView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            gameView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            gameView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            gameView.topAnchor.constraint(equalTo: view.topAnchor),
-            gameView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
-    }
-
-    func setupButtons() {
+    private func setupButtons() {
         pauseButton = gameView.pauseButton
         restartButton = gameView.restartButton
 

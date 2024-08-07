@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 class GameView: UIView {
     
+    // MARK: - Properties
     private let background: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -18,7 +19,6 @@ class GameView: UIView {
     public var levelLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Modak", size: 40)
-//        label.font = UIFont.systemFont(ofSize: 40)
         label.text = "Level 1"
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +53,7 @@ class GameView: UIView {
         Resources.GameBackgrounds.bg5
     ]
         
-    
+    // MARK: - Initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -63,6 +63,7 @@ class GameView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
     private func configure() {
         setupLevelBackground()
         setupSubviews()

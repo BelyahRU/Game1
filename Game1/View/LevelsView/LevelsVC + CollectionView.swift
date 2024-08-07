@@ -7,16 +7,29 @@
 
 import Foundation
 import UIKit
+
+// MARK: - CollectionView
 extension LevelsViewController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func setupCollectionView() {
         levelsView.levelsCollectionView.dataSource = self
         levelsView.levelsCollectionView.delegate = self
         levelsView.levelsCollectionView.register(LevelCollectionViewCell.self, forCellWithReuseIdentifier: LevelCollectionViewCell.reuseId)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        20
+        10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if viewModel.getLevel(by: indexPath.row + 1)!.isCompleted == true {
+            let gameVC = GameViewController()
+            gameVC.currentLevel = indexPath.row + 1
+            gameVC.modalPresentationStyle = .overCurrentContext
+            gameVC.modalTransitionStyle = .crossDissolve
+            present(gameVC, animated: true, completion: nil)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -26,7 +39,9 @@ extension LevelsViewController:  UICollectionViewDataSource, UICollectionViewDel
                 as? LevelCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.setupCell(level: nil, stars: nil)
+        let level = viewModel.getLevel(by: indexPath.row + 1)
+        print(level)
+        cell.setupCell(level: level)
         return cell
     }
 
@@ -35,16 +50,5 @@ extension LevelsViewController:  UICollectionViewDataSource, UICollectionViewDel
        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
            return CGSize(width: 116, height: 116)
        }
-
-//       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//           return UIEdgeInsets(top: 9, left: 25, bottom: 9, right: 25)
-//       }
-//
-//       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//           return 9 // вертикальный отступ
-//       }
-//       
-//       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//           return 25 // горизонтальный отступ
-//       }
+    
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class GameOverViewController: UIViewController {
 
+    // MARK: - Properties
     //FROM GameScene
     var hits: Int = 0
     var totalShots: Int = 0
@@ -17,6 +18,7 @@ class GameOverViewController: UIViewController {
     public let gameOverView = GameOverView()
     public var viewModel = GameOverViewModel()
     
+    // MARK: - Initialize
     init(hits: Int, totalShots: Int) {
         super.init(nibName: nil, bundle: nil)
         self.hits = hits
@@ -29,11 +31,13 @@ class GameOverViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
 
+    // MARK: - Methods
     private func configure() {
         setupData()
         setupUI()
@@ -44,7 +48,6 @@ class GameOverViewController: UIViewController {
         let money = viewModel.countingMoney()
         
         gameOverView.moneyLabel.text = "+\(money)"
-//        gameOverView.levelLabel.text
         switch stars {
         case 1:
             gameOverView.star1.isHidden = false

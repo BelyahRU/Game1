@@ -20,6 +20,7 @@ enum Resources {
             static let level1Star = "level1Star"
             static let level2Star = "level2Star"
             static let level3Star = "level3Star"
+            static let level0Star = "level0Star"
         }
     }
     

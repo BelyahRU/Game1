@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 class LevelsView: UIView {
     
+    // MARK: - Properties
     private let background: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +59,7 @@ class LevelsView: UIView {
         return collectionView
     }()
     
+    // MARK: - Initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -67,6 +69,7 @@ class LevelsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
     private func configure() {
         setupSubviews()
         setupConstraints()
@@ -74,13 +77,12 @@ class LevelsView: UIView {
     
     private func setupSubviews() {
         addSubview(background)
-//        addSubview(levelsView)
         addSubview(legsView)
         addSubview(backView)
         addSubview(labelView)
         addSubview(cancelButton)
+        addSubview(levelsCollectionView)
         addSubview(headerView)
-        backView.addSubview(levelsCollectionView)
     }
     
     private func setupConstraints() {
@@ -96,32 +98,27 @@ class LevelsView: UIView {
             backView.widthAnchor.constraint(equalToConstant: 313),
             backView.heightAnchor.constraint(equalToConstant: 411),
             
-            
             headerView.widthAnchor.constraint(equalToConstant: 279),
             headerView.heightAnchor.constraint(equalToConstant: 143),
             headerView.bottomAnchor.constraint(equalTo: backView.topAnchor, constant: 33),
             headerView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
-            
+                  
             legsView.topAnchor.constraint(equalTo: self.backView.bottomAnchor, constant: -17),
             legsView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             legsView.widthAnchor.constraint(equalToConstant: 213),
             legsView.heightAnchor.constraint(equalToConstant: 47),
-            
             
             labelView.topAnchor.constraint(equalTo: self.legsView.bottomAnchor, constant: -17),
             labelView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             labelView.widthAnchor.constraint(equalToConstant: 323),
             labelView.heightAnchor.constraint(equalToConstant: 88),
             
-            
             cancelButton.heightAnchor.constraint(equalToConstant: 51),
             cancelButton.widthAnchor.constraint(equalToConstant: 51),
             cancelButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             cancelButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -48),
             
-            
-            levelsCollectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            levelsCollectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -25),
             levelsCollectionView.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 32),
             levelsCollectionView.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -32),
             levelsCollectionView.bottomAnchor.constraint(equalTo: legsView.topAnchor, constant: -6)

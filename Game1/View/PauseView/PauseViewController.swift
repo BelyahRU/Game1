@@ -10,6 +10,7 @@ import UIKit
 
 class PauseViewController: UIViewController {
     
+    // MARK: - Properties
     weak var delegate: PauseViewControllerDelegate?
     
     public let pauseView = PauseView()
@@ -17,11 +18,13 @@ class PauseViewController: UIViewController {
     private var resumeButton: UIButton!
     private var homeButton: UIButton!
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
+    // MARK: - Methods
     private func configure() {
         setupButtons()
         setupUI()
@@ -40,7 +43,7 @@ class PauseViewController: UIViewController {
     }
 }
 
-//MARK: Action
+//MARK: - Action
 extension PauseViewController {
     public func setupButtons() {
         resumeButton = pauseView.resumeButton

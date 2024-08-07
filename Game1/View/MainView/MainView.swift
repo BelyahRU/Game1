@@ -10,6 +10,7 @@ import UIKit
 
 class MainView: UIView {
     
+    // MARK: - Properties
     public let background: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: Resources.Back.mainBackground)
@@ -32,15 +33,6 @@ class MainView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-//    public let mainSV: UIStackView = {
-//        let sv = UIStackView()
-//        sv.axis = .vertical
-//        sv.spacing = 15
-//        sv.isUserInteractionEnabled = true
-//        sv.translatesAutoresizingMaskIntoConstraints = false
-//        return sv
-//    }()
     
     public lazy var playButton: UIButton = {
         let button = UIButton()
@@ -82,7 +74,7 @@ class MainView: UIView {
         return button
     }()
     
-
+    // MARK: - Initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -92,7 +84,7 @@ class MainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    // MARK: - Methods
     private func configure() {
         setupSubviews()
         setupConstraints()

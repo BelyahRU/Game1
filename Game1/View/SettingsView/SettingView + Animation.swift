@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+
+// MARK: - Animation
 extension SettingsView {
     
     public func setupAnimation() {

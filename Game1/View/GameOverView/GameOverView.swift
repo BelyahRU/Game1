@@ -10,6 +10,7 @@ import UIKit
 
 class GameOverView: UIView {
     
+    // MARK: - Properties
     private let gameOverLabel: UIImageView = {
         let im = UIImageView()
         im.translatesAutoresizingMaskIntoConstraints = false
@@ -67,7 +68,6 @@ class GameOverView: UIView {
         let im = UIImageView()
         im.translatesAutoresizingMaskIntoConstraints = false
         im.image = UIImage(named: Resources.GameOver.star)
-//        im.isHidden = true
         return im
     }()
     
@@ -75,7 +75,6 @@ class GameOverView: UIView {
         let im = UIImageView()
         im.translatesAutoresizingMaskIntoConstraints = false
         im.image = UIImage(named: Resources.GameOver.star)
-//        im.isHidden = true
         return im
     }()
     
@@ -83,7 +82,6 @@ class GameOverView: UIView {
         let im = UIImageView()
         im.translatesAutoresizingMaskIntoConstraints = false
         im.image = UIImage(named: Resources.GameOver.star)
-//        im.isHidden = true
         return im
     }()
     
@@ -101,7 +99,7 @@ class GameOverView: UIView {
         return button
     }()
     
-    
+    // MARK: - Initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .clear
@@ -112,6 +110,7 @@ class GameOverView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
     private func configure() {
         setupSubviews()
         setupConstraints()

@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsView: UIView {
     
+    // MARK: - Properties
     private let backgroundImage: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +65,8 @@ class SettingsView: UIView {
     }()
     
     public var settingHeaderTopConstraint: NSLayoutConstraint!
-        
+    
+    // MARK: - Initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -74,6 +76,7 @@ class SettingsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
     private func configure() {
         setupSubviews()
         setupConstraints()
