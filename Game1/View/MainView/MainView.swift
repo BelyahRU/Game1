@@ -26,6 +26,15 @@ class MainView: UIView {
         return view
     }()
     
+    public let coinsLabel: UILabel = {
+        let label = UILabel()
+        label.alpha = 0
+        label.font = UIFont(name: "Modak", size: 40)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     public let backView: UIImageView = {
         let view = UIImageView()
         view.alpha = 0
@@ -100,6 +109,7 @@ class MainView: UIView {
         addSubview(playButton)
         addSubview(levelsButton)
         addSubview(settingButton)
+        addSubview(coinsLabel)
     }
     
     private func setupConstraints() {
@@ -142,7 +152,10 @@ class MainView: UIView {
             shopButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             shopButton.heightAnchor.constraint(equalTo: settingButton.heightAnchor),
             shopButton.widthAnchor.constraint(equalTo: shopButton.heightAnchor),
-            shopButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            shopButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            
+            coinsLabel.leadingAnchor.constraint(equalTo: headerView.centerXAnchor, constant: -24),
+            coinsLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: 3)
         ])
     }
 }

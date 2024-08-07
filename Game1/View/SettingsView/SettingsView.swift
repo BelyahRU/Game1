@@ -121,7 +121,6 @@ class SettingsView: UIView {
             shareAppButton.widthAnchor.constraint(equalToConstant: 260),
             shareAppButton.heightAnchor.constraint(equalToConstant: 73),
             
-            // Position buttons between pauseLabel and homeButton
             usagePolicyButton.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -49),
             rateAppButton.topAnchor.constraint(equalTo: usagePolicyButton.bottomAnchor, constant: 15),
             shareAppButton.topAnchor.constraint(equalTo: rateAppButton.bottomAnchor, constant: 15),
@@ -132,7 +131,6 @@ class SettingsView: UIView {
             cancelButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -48)
         ])
         
-        // Установка начального значения верхнего ограничения settingHeader за пределы экрана
         settingHeaderTopConstraint = settingHeader.topAnchor.constraint(equalTo: self.topAnchor, constant: -100)
         settingHeaderTopConstraint.isActive = true
     }

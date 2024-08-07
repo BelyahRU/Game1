@@ -11,12 +11,17 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Properties
     public let settingView = SettingsView()
+    
     public var cancelButton: UIButton!
+    public var usagePolicyButton: UIButton!
+    public var rateAppButton: UIButton!
+    public var shareAppButton: UIButton!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        
     }
     
     // MARK: - Methods

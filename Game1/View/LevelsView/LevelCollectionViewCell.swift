@@ -12,7 +12,12 @@ class LevelCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     static let reuseId = "LevelCollectionViewCell"
     
-    private var item = UIImageView(image: UIImage(named: Resources.Levels.blockedLevel))
+    private var itemImage: UIImageView = {
+        let im = UIImageView()
+        im.image = UIImage(named: Resources.Levels.blockedLevel)
+        im.translatesAutoresizingMaskIntoConstraints = false
+        return im
+    }()
     
     private var levelLabel: UILabel = {
        let label = UILabel()
@@ -40,20 +45,19 @@ class LevelCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupSubviews() {
-        addSubview(item)
+        addSubview(itemImage)
         addSubview(levelLabel)
     }
     
     private func setupConstraints() {
-        item.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            item.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            item.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            item.topAnchor.constraint(equalTo: self.topAnchor),
-            item.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            itemImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            itemImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            itemImage.topAnchor.constraint(equalTo: self.topAnchor),
+            itemImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            levelLabel.centerXAnchor.constraint(equalTo: item.centerXAnchor),
-            levelLabel.topAnchor.constraint(equalTo: item.topAnchor, constant: 23)
+            levelLabel.centerXAnchor.constraint(equalTo: itemImage.centerXAnchor),
+            levelLabel.topAnchor.constraint(equalTo: itemImage.topAnchor, constant: 23)
         ])
     }
 }
@@ -68,13 +72,13 @@ extension LevelCollectionViewCell {
         if level.isUnlocked == true  {
             switch level.stars {
             case 1:
-                item.image = UIImage(named: Resources.GameOver.LevelViews.level1Star)
+                itemImage.image = UIImage(named: Resources.GameOver.LevelViews.level1Star)
             case 2:
-                item.image = UIImage(named: Resources.GameOver.LevelViews.level2Star)
+                itemImage.image = UIImage(named: Resources.GameOver.LevelViews.level2Star)
             case 3:
-                item.image = UIImage(named: Resources.GameOver.LevelViews.level3Star)
+                itemImage.image = UIImage(named: Resources.GameOver.LevelViews.level3Star)
             default:
-                item.image = UIImage(named: Resources.GameOver.LevelViews.level0Star)
+                itemImage.image = UIImage(named: Resources.GameOver.LevelViews.level0Star)
             }
             
             levelLabel.text = "\(level.levelNumber)"

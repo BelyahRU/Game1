@@ -40,9 +40,10 @@ extension GameScene {
             checkGameOver()
             return
         }
+        let bulletImages = ["ball1", "ball2", "ball3", "ball4", "ball5", "ball6"]
 
-        let bullet = SKShapeNode(circleOfRadius: 10)
-        bullet.fillColor = .yellow
+        let bullet = SKSpriteNode(imageNamed: bulletImages.randomElement()!) // Замените "bulletImage" на имя вашего изображения мяча
+        bullet.size = CGSize(width: 20, height: 20) // Подгоните размер под ваш радиус 10
         
         // Добавляем физическое тело для мячика
         let bulletPhysicsBody = SKPhysicsBody(circleOfRadius: 10)
@@ -52,9 +53,9 @@ extension GameScene {
         bullet.physicsBody = bulletPhysicsBody
         
         let gunTipPosition = CGPoint(
-                x: gun.position.x + 14,
-                y: gun.position.y - gun.size.height / 2 + 10
-            )
+            x: gun.position.x + 14,
+            y: gun.position.y - gun.size.height / 2 + 10
+        )
         bullet.position = gunTipPosition
         
         addChild(bullet)
@@ -62,7 +63,10 @@ extension GameScene {
         
         let moveAction = SKAction.moveTo(y: -bullet.frame.size.height / 2, duration: 1.5)
         let removeAction = SKAction.removeFromParent()
-        let sequence = SKAction.sequence([moveAction, removeAction])
+        let playSoundAction = SKAction.run {
+            AudioManager.shared.ballMissedEffect()
+        }
+        let sequence = SKAction.sequence([moveAction, playSoundAction, removeAction])
         bullet.run(sequence) { [weak self] in
             if let self = self, let index = self.bullets.firstIndex(of: bullet) {
                 self.bullets.remove(at: index)
@@ -73,20 +77,21 @@ extension GameScene {
         shotsLabel.text = "\(totalRemainingShots)"
         checkGameOver()
     }
+
+
     
     // Обработка столкновений
     public func didBegin(_ contact: SKPhysicsContact) {
         let contactMask = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
         
         if contactMask == PhysicsCategory.Bullet | PhysicsCategory.Block {
-            if let bullet = contact.bodyA.node as? SKShapeNode ?? contact.bodyB.node as? SKShapeNode {
+            if let bullet = contact.bodyA.node as? SKSpriteNode ?? contact.bodyB.node as? SKSpriteNode {
                 bullet.removeFromParent()
             }
         }
     }
     // Проверка столкновений
     public func checkCollisions() {
-        // Определяем область коробки, где мячик должен быть заброшен
         let reducedBoxFrame = CGRect(
             x: box.frame.origin.x ,
             y: box.frame.origin.y - 10,
@@ -102,15 +107,16 @@ extension GameScene {
                 height: bullet.frame.size.height
             )
             
-            // Проверяем, пересекает ли мячик область коробки
             if reducedBoxFrame.intersects(bulletFrame) {
-                // Проверяем, что мячик попал в коробку сверху
                 if bullet.position.y > box.position.y {
                     bullet.removeFromParent()
                     if let index = bullets.firstIndex(of: bullet) {
                         bullets.remove(at: index)
                     }
+                    AudioManager.shared.ballBasketEffect()
                     incrementHits()
+                } else {
+                    AudioManager.shared.ballMissedEffect()
                 }
             }
         }

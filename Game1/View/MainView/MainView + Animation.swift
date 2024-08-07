@@ -19,17 +19,18 @@ extension MainView {
             self.menuButton.alpha = 1
         }) { _ in
             // После завершения первой анимации запускаем анимацию headerView
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.headerView.alpha = 1
+                self.coinsLabel.alpha = 1
             }) { _ in
                 // После завершения анимации headerView по очереди запускаем анимации для остальных кнопок
-                UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+                UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
                     self.settingButton.alpha = 1
                 }, completion: { _ in
-                    UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+                    UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
                         self.levelsButton.alpha = 1
                     }, completion: { _ in
-                        UIView.animate(withDuration: 0.3, delay: 0, options: [], animations: {
+                        UIView.animate(withDuration: 0.1, delay: 0, options: [], animations: {
                             self.playButton.alpha = 1
                         })
                     })

@@ -17,7 +17,9 @@ extension GameOverViewController {
     
     @objc
     func homePressed() {
+        AudioManager.shared.buttonClickEffect()
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            
                     sceneDelegate.switchToMainScreen()
                 }
     }

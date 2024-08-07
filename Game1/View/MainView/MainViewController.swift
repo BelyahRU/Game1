@@ -15,18 +15,27 @@ class MainViewController: UIViewController {
     var settingButton: UIButton!
     var playButton: UIButton!
     var levelsButton: UIButton!
+    var shopButton: UIButton!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+//        ShopManager.shared.resetPurchases()
+//        LevelManager.shared.addCoins(200000)
         configure()
         
     }
     
     // MARK: - Methods
     private func configure() {
+        setupCoins()
         setupButtons()
         setupUI()
+    }
+    
+    private func setupCoins() {
+        let coins = LevelManager.shared.getTotalCoins()
+        mainView.coinsLabel.text = "\(coins)"
     }
     
     private func setupUI() {
@@ -40,6 +49,7 @@ class MainViewController: UIViewController {
             mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
+    
     
 }
 

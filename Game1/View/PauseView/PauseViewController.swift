@@ -17,6 +17,9 @@ class PauseViewController: UIViewController {
     
     public var resumeButton: UIButton!
     public var homeButton: UIButton!
+    public var usagePolicyButton: UIButton!
+    public var rateAppButton: UIButton!
+    public var shareAppButton: UIButton!
     
     // MARK: - Life cycle
     override func viewDidLoad() {

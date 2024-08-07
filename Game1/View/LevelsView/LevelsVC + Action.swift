@@ -17,6 +17,7 @@ extension LevelsViewController {
     
     @objc
     func cancelPressed() {
+        AudioManager.shared.buttonClickEffect()
         self.dismiss(animated: true)
     }
 }

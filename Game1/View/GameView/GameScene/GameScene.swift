@@ -26,7 +26,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     public var gun: SKSpriteNode!
     public var box: SKSpriteNode!
     private var boxLabel: SKLabelNode!
-    public var bullets = [SKShapeNode]()
+    public var bullets: [SKSpriteNode] = []
     private var isShooting = false
     private var hits = 0 // Количество попаданий в коробку
     private var lastShotTime: TimeInterval = 0
@@ -68,7 +68,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     // Настройка пушки
     private func setupGun() {
-        let gunTexture = SKTexture(imageNamed: "gun.png")
+        let set = ShopManager.shared.getCurrentSet()
+        //
+        let gunTexture = SKTexture(imageNamed: set?.cannonImageName ?? "gun")
         gun = SKSpriteNode(texture: gunTexture)
         gun.position = CGPoint(x: size.width / 2, y: size.height - 100)
         addChild(gun)
@@ -76,7 +78,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Настройка коробки
     private func setupBox() {
-        let boxTexture = SKTexture(imageNamed: "box.png")
+        let set = ShopManager.shared.getCurrentSet()
+        //
+        let boxTexture = SKTexture(imageNamed: set?.boxImageName ?? "box")
         box = SKSpriteNode(texture: boxTexture)
         box.position = CGPoint(x: size.width / 2, y: 100)
         
@@ -109,11 +113,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Настройка лейбла для оставшихся выстрелов
     private func setupShotsLabel() {
+        let set = ShopManager.shared.getCurrentSet()
         shotsLabel = SKLabelNode(fontNamed: "Modak")
         shotsLabel.fontSize = 20
         shotsLabel.fontColor = .white
         shotsLabel.text = "\(totalRemainingShots)"
-        shotsLabel.position = CGPoint(x: 20, y: -20)
+        if set!.id == "1" {
+            shotsLabel.position = CGPoint(x: 10, y: -20)
+        } else if set!.id == "2" {
+            shotsLabel.position = CGPoint(x: 3, y: -20)
+        } else if set!.id == "3"{
+            shotsLabel.position = CGPoint(x: 7, y: -20)
+        } else if set!.id == "4"{
+            shotsLabel.position = CGPoint(x: 15, y: -10)
+        } else {
+            shotsLabel.position = CGPoint(x: 20, y: -20)
+        }
         shotsLabel.zPosition = 5
         gun.addChild(shotsLabel)
     }
@@ -154,6 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     public func checkGameOver() {
         let requiredHits = totalShots / 2
         if totalRemainingShots == 0 || hits >= requiredHits {
+            AudioManager.shared.gameOverEffect()
             gameSceneDelegate?.showGameOver(hits: hits, totalShots: totalShots)
         }
     }

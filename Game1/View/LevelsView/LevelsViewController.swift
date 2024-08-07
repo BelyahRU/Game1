@@ -22,9 +22,15 @@ class LevelsViewController: UIViewController {
     
     // MARK: - Methods
     private func configure() {
+        setupCoins()
         setupUI()
         setupCollectionView()
         setupButton()
+        animateViews()
+    }
+    
+    private func setupCoins() {
+        levelsView.coinsLabel.text = "\(LevelManager.shared.getTotalCoins())"
     }
     
     private func setupUI() {

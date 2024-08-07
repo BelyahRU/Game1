@@ -24,6 +24,7 @@ extension LevelsViewController:  UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if viewModel.getLevel(by: indexPath.row + 1)!.isUnlocked == true {
+            AudioManager.shared.buttonClickEffect()
             let gameVC = GameViewController()
             gameVC.currentLevel = indexPath.row + 1
             gameVC.modalPresentationStyle = .overCurrentContext
@@ -40,8 +41,8 @@ extension LevelsViewController:  UICollectionViewDataSource, UICollectionViewDel
             return UICollectionViewCell()
         }
         let level = viewModel.getLevel(by: indexPath.row + 1)
-        print(level)
         cell.setupCell(level: level)
+        print(level!, indexPath)
         return cell
     }
 

@@ -17,36 +17,49 @@ class LevelsView: UIView {
         return view
     }()
     
-    private let headerView: UIImageView = {
+    public let headerView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: Resources.Images.redViewHeader)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.alpha = 0
         return view
     }()
     
     public let backView: UIImageView = {
         let im = UIImageView(image: UIImage(named: Resources.RoundedView.roundedView))
         im.translatesAutoresizingMaskIntoConstraints = false
+        im.alpha = 0
         return im
     }()
     
     public let legsView: UIImageView = {
         let im = UIImageView(image: UIImage(named: Resources.RoundedView.legsRoundedView))
         im.translatesAutoresizingMaskIntoConstraints = false
+        im.alpha = 0
         return im
     }()
     
     public let labelView: UIImageView = {
         let im = UIImageView(image: UIImage(named: Resources.RoundedView.levelsLabel))
         im.translatesAutoresizingMaskIntoConstraints = false
+        im.alpha = 0
         return im
     }()
     
+    public let coinsLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Modak", size: 40)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.alpha = 0
+        label.textColor = .white
+        return label
+    }()
     
     public let cancelButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: Resources.Buttons.cancelButton), for: .normal)
+        button.alpha = 0
         return button
     }()
     
@@ -56,6 +69,7 @@ class LevelsView: UIView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.alpha = 0
         return collectionView
     }()
     
@@ -83,6 +97,7 @@ class LevelsView: UIView {
         addSubview(cancelButton)
         addSubview(levelsCollectionView)
         addSubview(headerView)
+        addSubview(coinsLabel)
     }
     
     private func setupConstraints() {
@@ -121,7 +136,10 @@ class LevelsView: UIView {
             levelsCollectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -25),
             levelsCollectionView.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 32),
             levelsCollectionView.trailingAnchor.constraint(equalTo: backView.trailingAnchor, constant: -32),
-            levelsCollectionView.bottomAnchor.constraint(equalTo: legsView.topAnchor, constant: -6)
+            levelsCollectionView.bottomAnchor.constraint(equalTo: legsView.topAnchor, constant: -6),
+            
+            coinsLabel.leadingAnchor.constraint(equalTo: headerView.centerXAnchor, constant: -24),
+            coinsLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: 3),
         ])
     }
 }

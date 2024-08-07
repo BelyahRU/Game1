@@ -58,6 +58,7 @@ extension GameViewController {
 
     // MARK: - GameSceneDelegate
     func showGameOver(hits: Int, totalShots: Int) {
+        AudioManager.shared.gameOverEffect()
         scene?.togglePause()
         view.addSubview(blurEffectView)
         let gameOverVC = GameOverViewController(hits: hits, totalShots: totalShots, level: currentLevel)

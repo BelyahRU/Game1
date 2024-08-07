@@ -20,12 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
-//        window?.rootViewController = SettingsViewController()
-//        window?.rootViewController = LoadingViewController()
-//        window?.rootViewController = LevelsViewController()
-        window?.rootViewController = GameViewController()
-//        window?.rootViewController = GameOverViewController(hits: 12, totalShots: 30, level: 1)
-//        window?.rootViewController = PauseViewController()
+        window?.rootViewController = LoadingViewController()
+        AudioManager.shared.startBackgroundMusic()
     }
     
     func switchToMainScreen() {

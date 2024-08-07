@@ -18,14 +18,6 @@ class LoadingViewController: UIViewController {
         return view
     }()
     
-    private lazy var loaderView: LoaderView = {
-        let loaderView = LoaderView()
-        loaderView.translatesAutoresizingMaskIntoConstraints = false
-        loaderView.layer.cornerRadius = 8
-        loaderView.clipsToBounds = true
-        return loaderView
-    }()
-    
     private let logoImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: Resources.Images.crazyBallImage))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +56,6 @@ class LoadingViewController: UIViewController {
         view.addSubview(background)
         view.addSubview(logoImageView)
         view.addSubview(progressBar)
-        view.addSubview(loaderView)
     }
     
     private func setupConstraints() {

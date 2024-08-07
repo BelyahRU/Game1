@@ -60,6 +60,7 @@ extension GameScene {
             totalShots = 60
             setupLevel1()
         }
+        setupTotalRemainingShots()
         setupHits()
        
     }
