@@ -24,8 +24,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = LoadingViewController()
 //        window?.rootViewController = LevelsViewController()
         window?.rootViewController = GameViewController()
-//        window?.rootViewController = GameOverViewController()
+//        window?.rootViewController = GameOverViewController(hits: 12, totalShots: 30, level: 1)
 //        window?.rootViewController = PauseViewController()
+    }
+    
+    func switchToMainScreen() {
+        let mainViewController = MainViewController()
+
+        window?.rootViewController = mainViewController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

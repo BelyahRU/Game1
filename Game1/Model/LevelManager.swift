@@ -33,6 +33,16 @@ class LevelManager {
     func updateLevel(level: Level) {
         if let index = levels.firstIndex(where: { $0.levelNumber == level.levelNumber }) {
             levels[index] = level
+            if levels[index].isCompleted == false && level.isCompleted == true {
+                markLevelAsCompleted(levelNumber: level.levelNumber)
+            }
+            if level.levelNumber != levels.count {
+                if level.isCompleted && self.level(for: level.levelNumber + 1)!.isUnlocked == false{
+                    unlockNextLevel(levelNumber: level.levelNumber)
+                }
+            }
+
+            saveLevels()
         }
     }
     
@@ -40,18 +50,21 @@ class LevelManager {
     /// Также открывает следующий уровень и добавляет монеты к общему количеству.
     /// - Parameters:
     ///   - levelNumber: Номер пройденного уровня.
-    ///   - stars: Количество заработанных звездочек.
-    ///   - coins: Количество заработанных монет (учитываются отдельно).
-    func markLevelAsCompleted(levelNumber: Int, stars: Int, coins: Int) {
+    private func markLevelAsCompleted(levelNumber: Int) {
         if var level = level(for: levelNumber) {
             level.isCompleted = true
-            level.stars = stars
-            updateLevel(level: level)
+            updateLevelWithoutMarkingComplete(level: level)
             
-            totalCoins += coins
             unlockNextLevel(levelNumber: levelNumber)
             saveLevels()
-            saveCoins()
+        }
+    }
+    
+    /// Обновляет уровень без проверки на завершение, чтобы избежать циклического вызова.
+    /// - Parameter level: Уровень, который нужно обновить.
+    private func updateLevelWithoutMarkingComplete(level: Level) {
+        if let index = levels.firstIndex(where: { $0.levelNumber == level.levelNumber }) {
+            levels[index] = level
         }
     }
     
@@ -60,9 +73,15 @@ class LevelManager {
     private func unlockNextLevel(levelNumber: Int) {
         let nextLevelNumber = levelNumber + 1
         if nextLevelNumber <= totalLevels, var nextLevel = level(for: nextLevelNumber) {
-            nextLevel.isCompleted = false // Сделать доступным для прохождения
-            updateLevel(level: nextLevel)
+            nextLevel.isUnlocked = true // Сделать доступным для прохождения
+            updateLevelWithoutMarkingComplete(level: nextLevel)
         }
+    }
+    
+    /// Возвращает последний разблокированный уровень.
+        /// - Returns: Объект `Level`, если такой уровень существует, или `nil`, если нет.
+    func getLastUnlockedLevel() -> Level? {
+        return levels.filter { $0.isUnlocked }.max(by: { $0.levelNumber < $1.levelNumber })
     }
     
     /// Загружает данные об уровнях из UserDefaults.
@@ -73,7 +92,7 @@ class LevelManager {
             levels = savedLevels
         } else {
             // Инициализируем уровни по умолчанию
-            levels = (1...totalLevels).map { Level(levelNumber: $0, isCompleted: $0 == 1, stars: 0) }
+            levels = (1...totalLevels).map { Level(levelNumber: $0, isCompleted: false, stars: 0, isUnlocked: $0 == 1) }
         }
     }
     

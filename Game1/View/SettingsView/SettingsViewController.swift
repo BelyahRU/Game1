@@ -10,7 +10,8 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     // MARK: - Properties
-    private let settingView = SettingsView()
+    public let settingView = SettingsView()
+    public var cancelButton: UIButton!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -21,7 +22,7 @@ class SettingsViewController: UIViewController {
     // MARK: - Methods
     private func configure() {
         setupUI()
-        setupTargets()
+        setupButtons()
     }
     
     private func setupUI() {
@@ -36,15 +37,4 @@ class SettingsViewController: UIViewController {
     }
 }
 
-//MARK: Action
-extension SettingsViewController {
-    public func setupTargets() {
-        settingView.cancelButton.addTarget(self, action: #selector(cancelPressed), for: .touchUpInside)
-    }
-    
-    @objc
-    func cancelPressed() {
-        self.dismiss(animated: true)
-    }
-}
 

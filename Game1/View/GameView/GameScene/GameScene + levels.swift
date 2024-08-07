@@ -24,8 +24,8 @@ extension GameScene {
             totalShots = 30
             setupLevel2()
         case 3:
-            totalRemainingShots = 6
-            totalShots = 6
+            totalRemainingShots = 10
+            totalShots = 10
             setupLevel3()
         case 4:
             totalRemainingShots = 30
@@ -40,8 +40,8 @@ extension GameScene {
             totalShots = 30
             setupLevel6()
         case 7:
-            totalRemainingShots = 8
-            totalShots = 8
+            totalRemainingShots = 12
+            totalShots = 12
             setupLevel7()
         case 8:
             totalRemainingShots = 16
@@ -78,20 +78,32 @@ extension GameScene {
     
     // Настройка для уровня 3
     public func setupLevel3() {
+        // Настройка для коробки
         configureBox(size: CGSize(width: 120, height: 120), position: CGPoint(x: size.width / 2, y: 100))
         
-        let movingBlock = createMovingBlock(imageName: "badBlock4", size: CGSize(width: 128, height: 51), position: CGPoint(x: size.width / 2, y: size.height / 1.5))
+        // Создание и добавление двигающегося блока
+        let movingBlockWidth: CGFloat = 128
+        let movingBlockHeight: CGFloat = 51
+        let boxCenterX = size.width / 2
+        let boxCenterY = size.height / 1.5
+        
+        // Устанавливаем позицию блока, учитывая 50 пикселей вправо от центра пушки
+        let movingBlockPosition = CGPoint(x: boxCenterX + 50 + movingBlockWidth, y: boxCenterY - 50)
+        let movingBlock = createMovingBlock(imageName: "badBlock4", size: CGSize(width: movingBlockWidth, height: movingBlockHeight), position: movingBlockPosition)
+        
         addChild(movingBlock)
         
+        // Запуск анимации коробки и блока
         startBoxMovement()
         startMovingBlock(movingBlock, duration: 1)
     }
+
     
     // Настройка для уровня 4
     public func setupLevel4() {
-        configureBox(size: CGSize(width: 120, height: 120), position: CGPoint(x: size.width / 2, y: 200))
+        configureBox(size: CGSize(width: 120, height: 120), position: CGPoint(x: size.width / 2, y: size.height / 1.5 - 180))
         
-        let obstacle = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 100, height: 30), position: CGPoint(x: size.width / 2, y: 300), angle: .pi / 6)
+        let obstacle = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 100, height: 30), position: CGPoint(x: size.width / 2, y: size.height / 1.5 - 50), angle: .pi / 6)
         addChild(obstacle)
         
         startBoxMovement()
@@ -99,12 +111,12 @@ extension GameScene {
     
     // Настройка для уровня 5
     public func setupLevel5() {
-        configureBox(size: CGSize(width: 120, height: 120), position: CGPoint(x: size.width / 2, y: 100))
+        configureBox(size: CGSize(width: 120, height: 120), position: CGPoint(x: size.width / 2, y: size.height / 1.5 - 240))
         
-        let obstacle1 = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 200, height: 30), position: CGPoint(x: size.width / 3, y: size.width), angle: -.pi / 6)
+        let obstacle1 = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 200, height: 30), position: CGPoint(x: size.width / 3, y: size.height / 1.5 - 50), angle: -.pi / 6)
         addChild(obstacle1)
         
-        let obstacle2 = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 300, height: 30), position: CGPoint(x: size.width * 2 / 3, y: size.width - 100), angle: .pi / 6)
+        let obstacle2 = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 300, height: 30), position: CGPoint(x: size.width * 2 / 3, y: size.height / 1.5 - 120), angle: .pi / 6)
         addChild(obstacle2)
         
         startBoxMovement()
@@ -112,7 +124,7 @@ extension GameScene {
 
     // Настройка для уровня 6
     public func setupLevel6() {
-        configureBox(size: CGSize(width: 150, height: 150), position: CGPoint(x: size.width / 2, y: 100))
+        configureBox(size: CGSize(width: 150, height: 150), position: CGPoint(x: size.width / 2, y: 80))
         
         let crescent = createRotatedSprite(imageName: "buba.png", size: CGSize(width: 100, height: 100), position: CGPoint(x: size.width / 2, y: size.height / 2), rotationAngle: 120.0 * .pi / 180.0)
         addChild(crescent)
@@ -126,6 +138,8 @@ extension GameScene {
 
     // Настройка для уровня 7
     public func setupLevel7() {
+        configureBox(size: CGSize(width: 100, height: 100), position: CGPoint(x: size.width / 2, y: 80))
+        
         let movingBlock1 = createMovingBlock(imageName: "badBlock4", size: CGSize(width: 128, height: 51), position: CGPoint(x: size.width / 4, y: size.height / 3))
         addChild(movingBlock1)
         
@@ -139,12 +153,12 @@ extension GameScene {
 
     // Настройка для уровня 8
     public func setupLevel8() {
-        configureBox(size: CGSize(width: 150, height: 150), position: CGPoint(x: size.width / 2, y: 100))
+        configureBox(size: CGSize(width: 100, height: 100), position: CGPoint(x: size.width / 2, y: 60))
         
-        let obstacle = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 200, height: 30), position: CGPoint(x: size.width / 1.7, y: size.width - 20), angle: .pi / 2.5)
+        let obstacle = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 100, height: 30), position: CGPoint(x: size.width / 1.7, y: size.height / 1.5 - 70), angle: .pi / 2.5)
         addChild(obstacle)
         
-        let movingBlock = createMovingBlock(imageName: "badBlock1", size: CGSize(width: 76, height: 51), position: CGPoint(x: size.width - 300, y: size.height / 4))
+        let movingBlock = createMovingBlock(imageName: "badBlock1", size: CGSize(width: 76, height: 51), position: CGPoint(x: size.width - 300, y: size.height / 4 + 20))
         addChild(movingBlock)
         
         startBoxMovement()
@@ -153,10 +167,12 @@ extension GameScene {
 
     // Настройка для уровня 9
     public func setupLevel9() {
-        let obstacle = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 200, height: 30), position: CGPoint(x: size.width / 2, y: size.width / 2), angle: -.pi / 8)
+        configureBox(size: CGSize(width: 100, height: 100), position: CGPoint(x: size.width / 2, y: 60))
+        
+        let obstacle = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 200, height: 30), position: CGPoint(x: size.width / 2 - 40, y: size.height / 2 - 90), angle: -.pi / 8)
         addChild(obstacle)
         
-        let movingBlock1 = createMovingBlock(imageName: "badBlock1", size: CGSize(width: 51, height: 51), position: CGPoint(x: size.width - 100, y: size.height / 1.5))
+        let movingBlock1 = createMovingBlock(imageName: "badBlock1", size: CGSize(width: 51, height: 51), position: CGPoint(x: size.width - 100, y: size.height / 1.5 - 30))
         addChild(movingBlock1)
         
         let movingBlock2 = createMovingBlock(imageName: "badBlock2", size: CGSize(width: 76, height: 51), position: CGPoint(x: size.width - 300, y: size.height / 2))
@@ -169,10 +185,12 @@ extension GameScene {
 
     // Настройка для уровня 10
     public func setupLevel10() {
+        configureBox(size: CGSize(width: 100, height: 100), position: CGPoint(x: size.width / 2, y: 60))
+        
         let crescent = createRotatedSprite(imageName: "buba.png", size: CGSize(width: 80, height: 80), position: CGPoint(x: size.width / 3, y: size.height / 3.2), rotationAngle: 40.0 * .pi / 180.0)
         addChild(crescent)
         
-        let obstacle1 = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 100, height: 30), position: CGPoint(x: size.width / 2, y: size.height / 1.5), angle: -.pi / 5)
+        let obstacle1 = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 100, height: 30), position: CGPoint(x: size.width / 2 - 20, y: size.height / 1.65), angle: -.pi / 5)
         addChild(obstacle1)
         
         let obstacle2 = createObstacle(imageName: Resources.Game.redBlock, size: CGSize(width: 200, height: 30), position: CGPoint(x: size.width * 2 / 3, y: size.height / 2), angle: .pi / 6)

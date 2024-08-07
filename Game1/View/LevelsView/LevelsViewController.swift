@@ -39,15 +39,3 @@ class LevelsViewController: UIViewController {
     }
 }
 
-//MARK: Action
-extension LevelsViewController {
-    private func setupButton() {
-        cancelButton = levelsView.cancelButton
-        cancelButton.addTarget(self, action: #selector(cancelPressed), for: .touchUpInside)
-    }
-    
-    @objc
-    func cancelPressed() {
-        self.dismiss(animated: true)
-    }
-}

@@ -22,7 +22,7 @@ final class GameViewController: UIViewController, GameSceneDelegate, PauseViewCo
     public var pauseButton: UIButton!
     public var restartButton: UIButton!
     
-    public var currentLevel: Int = 10 {
+    public var currentLevel: Int = 9 {
         didSet {
             loadLevel()
         }

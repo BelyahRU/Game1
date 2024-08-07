@@ -23,7 +23,7 @@ extension LevelsViewController:  UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if viewModel.getLevel(by: indexPath.row + 1)!.isCompleted == true {
+        if viewModel.getLevel(by: indexPath.row + 1)!.isUnlocked == true {
             let gameVC = GameViewController()
             gameVC.currentLevel = indexPath.row + 1
             gameVC.modalPresentationStyle = .overCurrentContext

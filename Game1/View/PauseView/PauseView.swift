@@ -91,22 +91,6 @@ class PauseView: UIView {
             pauseLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             pauseLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 64),
             
-            usagePolicyButton.topAnchor.constraint(equalTo: pauseLabel.bottomAnchor, constant: 145),
-            usagePolicyButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            usagePolicyButton.widthAnchor.constraint(equalToConstant: 260),
-            usagePolicyButton.heightAnchor.constraint(equalToConstant: 73),
-            
-            rateAppButton.topAnchor.constraint(equalTo: usagePolicyButton.bottomAnchor, constant: 15),
-            rateAppButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            rateAppButton.widthAnchor.constraint(equalToConstant: 260),
-            rateAppButton.heightAnchor.constraint(equalToConstant: 73),
-            
-            shareAppButton.topAnchor.constraint(equalTo: rateAppButton.bottomAnchor, constant: 15),
-            shareAppButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            shareAppButton.widthAnchor.constraint(equalToConstant: 260),
-            shareAppButton.heightAnchor.constraint(equalToConstant: 73),
-            
-            
             resumeButton.widthAnchor.constraint(equalToConstant: 51),
             resumeButton.heightAnchor.constraint(equalToConstant: 51),
             resumeButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -48),
@@ -117,6 +101,24 @@ class PauseView: UIView {
             homeButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -48),
             homeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 124),
             
+            // Calculate the middle Y point between pauseLabel and homeButton
+            usagePolicyButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            rateAppButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            shareAppButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
+            usagePolicyButton.widthAnchor.constraint(equalToConstant: 260),
+            usagePolicyButton.heightAnchor.constraint(equalToConstant: 73),
+            
+            rateAppButton.widthAnchor.constraint(equalToConstant: 260),
+            rateAppButton.heightAnchor.constraint(equalToConstant: 73),
+            
+            shareAppButton.widthAnchor.constraint(equalToConstant: 260),
+            shareAppButton.heightAnchor.constraint(equalToConstant: 73),
+            
+            // Position buttons between pauseLabel and homeButton
+            usagePolicyButton.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -49),
+            rateAppButton.topAnchor.constraint(equalTo: usagePolicyButton.bottomAnchor, constant: 15),
+            shareAppButton.topAnchor.constraint(equalTo: rateAppButton.bottomAnchor, constant: 15),
         ])
     }
 }

@@ -58,12 +58,12 @@ class MainView: UIView {
         return button
     }()
     
-    public let menuButton: UIButton = {
-        let button = UIButton()
-        button.alpha = 0
-        button.setImage(UIImage(named: Resources.Buttons.menuButton), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    public let menuButton: UIImageView = {
+        let im = UIImageView()
+        im.alpha = 0
+        im.image = UIImage(named: Resources.Buttons.menuButton)
+        im.translatesAutoresizingMaskIntoConstraints = false
+        return im
     }()
     
     public let shopButton: UIButton = {
@@ -102,7 +102,6 @@ class MainView: UIView {
         addSubview(settingButton)
     }
     
-    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             background.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -110,41 +109,40 @@ class MainView: UIView {
             background.topAnchor.constraint(equalTo: self.topAnchor),
             background.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            headerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 53),
+            headerView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
             headerView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 142.5),
-            headerView.widthAnchor.constraint(equalToConstant: 279),
+            headerView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.7),
+            headerView.heightAnchor.constraint(equalTo: headerView.widthAnchor, multiplier: 142.5/279), // Пропорции оригинального изображения
             
             backView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            backView.widthAnchor.constraint(equalToConstant: 323),
-            backView.heightAnchor.constraint(equalToConstant: 363),
-            backView.topAnchor.constraint(equalTo: self.topAnchor, constant: 208),
-     
+            backView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8),
+            backView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4),
+            backView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
+            
             playButton.topAnchor.constraint(equalTo: backView.topAnchor, constant: 30),
-            playButton.widthAnchor.constraint(equalToConstant: 260),
-            playButton.heightAnchor.constraint(equalToConstant: 73),
+            playButton.widthAnchor.constraint(equalTo: backView.widthAnchor, multiplier: 0.8),
+            playButton.heightAnchor.constraint(equalTo: backView.heightAnchor, multiplier: 0.2),
             playButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             levelsButton.topAnchor.constraint(equalTo: playButton.bottomAnchor, constant: 15),
-            levelsButton.widthAnchor.constraint(equalToConstant: 260),
-            levelsButton.heightAnchor.constraint(equalToConstant: 73),
+            levelsButton.widthAnchor.constraint(equalTo: playButton.widthAnchor),
+            levelsButton.heightAnchor.constraint(equalTo: playButton.heightAnchor),
             levelsButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
             settingButton.topAnchor.constraint(equalTo: levelsButton.bottomAnchor, constant: 15),
-            settingButton.widthAnchor.constraint(equalToConstant: 260),
-            settingButton.heightAnchor.constraint(equalToConstant: 73),
+            settingButton.widthAnchor.constraint(equalTo: playButton.widthAnchor),
+            settingButton.heightAnchor.constraint(equalTo: playButton.heightAnchor),
             settingButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
-            menuButton.widthAnchor.constraint(equalToConstant: 323),
-            menuButton.heightAnchor.constraint(equalToConstant: 88),
-            
+            menuButton.widthAnchor.constraint(equalTo: backView.widthAnchor),
+            menuButton.heightAnchor.constraint(equalTo: backView.heightAnchor, multiplier: 0.2),
             menuButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            menuButton.topAnchor.constraint(equalTo: backView.bottomAnchor, constant: -24),
+            menuButton.topAnchor.constraint(equalTo: backView.bottomAnchor, constant: 10),
             
             shopButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            shopButton.heightAnchor.constraint(equalToConstant: 51),
-            shopButton.widthAnchor.constraint(equalToConstant: 51),
-            shopButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -48)
+            shopButton.heightAnchor.constraint(equalTo: settingButton.heightAnchor),
+            shopButton.widthAnchor.constraint(equalTo: shopButton.heightAnchor),
+            shopButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
 }

@@ -65,7 +65,7 @@ extension LevelCollectionViewCell {
             return
         }
         
-        if level.isCompleted == true  {
+        if level.isUnlocked == true  {
             switch level.stars {
             case 1:
                 item.image = UIImage(named: Resources.GameOver.LevelViews.level1Star)

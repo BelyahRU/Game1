@@ -14,12 +14,10 @@ extension MainViewController {
         settingButton = mainView.settingButton
         playButton = mainView.playButton
         levelsButton = mainView.levelsButton
-    }
-    
-    public func setupTargets() {
+        
         settingButton.addTarget(self, action: #selector(settingPressed), for: .touchUpInside)
         levelsButton.addTarget(self, action: #selector(levelsPressed), for: .touchUpInside)
-        
+        playButton.addTarget(self, action: #selector(playPressed), for: .touchUpInside)
     }
     
     @objc
@@ -37,4 +35,14 @@ extension MainViewController {
         levelsVC.modalPresentationStyle = .fullScreen
         self.present(levelsVC, animated: true, completion: nil)
     }
+    
+    @objc
+    func playPressed() {
+        let gameVC = GameViewController()
+        gameVC.currentLevel = LevelManager.shared.getLastUnlockedLevel()?.levelNumber ?? 1
+        gameVC.modalPresentationStyle = .overCurrentContext
+        gameVC.modalTransitionStyle = .crossDissolve
+        present(gameVC, animated: true, completion: nil)
+    }
+    
 }

@@ -27,7 +27,6 @@ class MainViewController: UIViewController {
     private func configure() {
         setupButtons()
         setupUI()
-        setupTargets()
     }
     
     private func setupUI() {

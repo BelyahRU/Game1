@@ -87,9 +87,9 @@ class SettingsView: UIView {
         addSubview(backgroundImage)
         addSubview(settingHeader)
         addSubview(buttonsSV)
-        buttonsSV.addArrangedSubview(usagePolicyButton)
-        buttonsSV.addArrangedSubview(rateAppButton)
-        buttonsSV.addArrangedSubview(shareAppButton)
+        addSubview(usagePolicyButton)
+        addSubview(rateAppButton)
+        addSubview(shareAppButton)
         addSubview(cancelButton)
     }
     
@@ -107,12 +107,24 @@ class SettingsView: UIView {
             buttonsSV.topAnchor.constraint(equalTo: self.topAnchor, constant: 297),
             buttonsSV.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             
+            // Calculate the middle Y point between pauseLabel and homeButton
+            usagePolicyButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            rateAppButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            shareAppButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            
             usagePolicyButton.widthAnchor.constraint(equalToConstant: 260),
             usagePolicyButton.heightAnchor.constraint(equalToConstant: 73),
+            
             rateAppButton.widthAnchor.constraint(equalToConstant: 260),
             rateAppButton.heightAnchor.constraint(equalToConstant: 73),
+            
             shareAppButton.widthAnchor.constraint(equalToConstant: 260),
             shareAppButton.heightAnchor.constraint(equalToConstant: 73),
+            
+            // Position buttons between pauseLabel and homeButton
+            usagePolicyButton.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -49),
+            rateAppButton.topAnchor.constraint(equalTo: usagePolicyButton.bottomAnchor, constant: 15),
+            shareAppButton.topAnchor.constraint(equalTo: rateAppButton.bottomAnchor, constant: 15),
             
             cancelButton.heightAnchor.constraint(equalToConstant: 51),
             cancelButton.widthAnchor.constraint(equalToConstant: 51),

@@ -57,11 +57,10 @@ extension GameViewController {
 
 
     // MARK: - GameSceneDelegate
-
     func showGameOver(hits: Int, totalShots: Int) {
         scene?.togglePause()
         view.addSubview(blurEffectView)
-        let gameOverVC = GameOverViewController(hits: hits, totalShots: totalShots)
+        let gameOverVC = GameOverViewController(hits: hits, totalShots: totalShots, level: currentLevel)
         gameOverVC.modalPresentationStyle = .overCurrentContext
         gameOverVC.modalTransitionStyle = .crossDissolve
         present(gameOverVC, animated: true, completion: nil)

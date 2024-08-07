@@ -11,5 +11,5 @@ struct Level: Encodable, Decodable {
     let levelNumber: Int
     var isCompleted: Bool
     var stars: Int
-//    var coins: Int
+    var isUnlocked: Bool
 }

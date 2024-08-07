@@ -15,8 +15,8 @@ class PauseViewController: UIViewController {
     
     public let pauseView = PauseView()
     
-    private var resumeButton: UIButton!
-    private var homeButton: UIButton!
+    public var resumeButton: UIButton!
+    public var homeButton: UIButton!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -43,17 +43,3 @@ class PauseViewController: UIViewController {
     }
 }
 
-//MARK: - Action
-extension PauseViewController {
-    public func setupButtons() {
-        resumeButton = pauseView.resumeButton
-        resumeButton.addTarget(self, action: #selector(resumePressed), for: .touchUpInside)
-    }
-    
-    
-    @objc
-    func resumePressed() {
-        delegate?.resumeGame()
-        self.dismiss(animated: true)
-    }
-}

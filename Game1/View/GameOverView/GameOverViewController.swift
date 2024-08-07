@@ -8,23 +8,25 @@
 import Foundation
 import UIKit
 
+
 class GameOverViewController: UIViewController {
 
     // MARK: - Properties
-    //FROM GameScene
-    var hits: Int = 0
-    var totalShots: Int = 0
+    var currentLevel: Int = 0
     
     public let gameOverView = GameOverView()
     public var viewModel = GameOverViewModel()
     
+    public var homeButton: UIButton!
+    public var restartButton: UIButton!
+    
     // MARK: - Initialize
-    init(hits: Int, totalShots: Int) {
+    init(hits: Int, totalShots: Int, level: Int) {
         super.init(nibName: nil, bundle: nil)
-        self.hits = hits
-        self.totalShots = totalShots
-        self.viewModel.hits = hits
-        self.viewModel.totalShots = totalShots
+        self.currentLevel = level
+        self.viewModel.setupHits(hits: hits)
+        self.viewModel.setupTotalShots(shots: totalShots)
+        self.viewModel.setupLevel(levelId: level)
     }
     
     required init?(coder: NSCoder) {
@@ -39,12 +41,18 @@ class GameOverViewController: UIViewController {
 
     // MARK: - Methods
     private func configure() {
+        setupButtons()
         setupData()
         setupUI()
     }
     
     private func setupData() {
-        let stars = viewModel.couningStars()
+        guard viewModel.level != nil else {
+            print("Error: Level is not set in viewModel")
+            return
+        }
+        
+        let stars = viewModel.countingStars()
         let money = viewModel.countingMoney()
         
         gameOverView.moneyLabel.text = "+\(money)"
@@ -62,7 +70,7 @@ class GameOverViewController: UIViewController {
             gameOverView.star3.isHidden = true
             
             gameOverView.levelView.image = UIImage(named:
-                        Resources.GameOver.LevelViews.level2Star)
+                            Resources.GameOver.LevelViews.level2Star)
         case 3:
             gameOverView.star1.isHidden = false
             gameOverView.star2.isHidden = false
@@ -71,8 +79,17 @@ class GameOverViewController: UIViewController {
             gameOverView.levelView.image = UIImage(named:
                         Resources.GameOver.LevelViews.level3Star)
         default:
-            print("error")
+            gameOverView.star1.isHidden = true
+            gameOverView.star2.isHidden = true
+            gameOverView.star3.isHidden = true
+            
+            gameOverView.levelView.image = UIImage(named:
+                        Resources.GameOver.LevelViews.level0Star)
         }
+        
+        gameOverView.levelLabel.text = "\(currentLevel)"
+        
+        viewModel.reloadLevelManager()
     }
 
     private func setupUI() {
