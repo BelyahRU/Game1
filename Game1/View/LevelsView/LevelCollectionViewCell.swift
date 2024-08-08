@@ -44,6 +44,12 @@ class LevelCollectionViewCell: UICollectionViewCell {
         setupConstraints()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        levelLabel.text = ""
+        itemImage.image = UIImage(named: Resources.Levels.blockedLevel)
+    }
+    
     private func setupSubviews() {
         addSubview(itemImage)
         addSubview(levelLabel)
