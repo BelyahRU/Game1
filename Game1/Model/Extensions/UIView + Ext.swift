@@ -15,9 +15,9 @@ extension UIView {
     func makeBorders(width: CGFloat) {
         self.layer.borderWidth = width
         if self.traitCollection.userInterfaceStyle == .dark {
-            self.layer.borderColor = UIColor(.white).cgColor
+            self.layer.borderColor = UIColor.white.cgColor
         } else {
-            self.layer.borderColor = UIColor(.black).cgColor
+            self.layer.borderColor = UIColor.black.cgColor
         }
     }
     

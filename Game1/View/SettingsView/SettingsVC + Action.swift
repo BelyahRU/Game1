@@ -19,7 +19,7 @@ extension SettingsViewController {
         cancelButton.addTarget(self, action: #selector(cancelPressed), for: .touchUpInside)
         usagePolicyButton.addTarget(self, action: #selector(usagePolicyPressed), for: .touchUpInside)
         rateAppButton.addTarget(self, action: #selector(rateAppPressed), for: .touchUpInside)
-        shareAppButton.addTarget(self, action: #selector(shareAppPressed), for: .touchUpInside)
+        shareAppButton.addTarget(self, action: #selector(shareAppPressed(_:)), for: .touchUpInside)
     }
     
     @objc
@@ -39,10 +39,27 @@ extension SettingsViewController {
     @objc
     func rateAppPressed() {
         AudioManager.shared.buttonClickEffect()
+        if let url = URL(string: "https://apps.apple.com/app/crazy-bubble-time-quest/id6618146973") {
+                UIApplication.shared.open(url)
+            }
     }
     
     @objc
-    func shareAppPressed() {
+    func shareAppPressed(_ sender: UIButton) {
         AudioManager.shared.buttonClickEffect()
+        // Ваша ссылка на приложение
+       let appURL = URL(string: "https://apps.apple.com/app/crazy-bubble-time-quest/id6618146973")!
+       
+        
+       let itemsToShare: [Any] = [appURL]
+       
+       // Инициализация ActivityViewController
+       let activityViewController = UIActivityViewController(activityItems: itemsToShare, applicationActivities: nil)
+       
+       // Настройка для iPad, если нужно
+       activityViewController.popoverPresentationController?.sourceView = sender
+       
+       // Показываем ActivityViewController
+       present(activityViewController, animated: true, completion: nil)
     }
 }
