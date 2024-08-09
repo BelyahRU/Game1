@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import ApphudSDK
+import OneSignalFramework
+import AppMetricaLog
+import AppMetricaCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,9 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    
-        // Override point for customization after application launch.
+        setupSDK()
         return true
+    }
+    private func setupSDK() {
+//       OneSignal.initialize(<#T##newAppId: String##String#>, withLaunchOptions: <#T##[AnyHashable : Any]?#>)
+        let configuration = AppMetricaConfiguration.init(apiKey: "6064a64d-29c3-4be8-b1ad-161d2734c2a0")
+        AppMetrica.activate(with: configuration!)
+
+    }
+    
+    
+
+    // Функция для извлечения значения по ключу из JSON
+    func extractValue(from data: Data, forKey key: String) -> Any? {
+        do {
+            // Преобразуем данные в JSON словарь
+            if let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                // Извлекаем значение по ключу
+                return jsonObject[key]
+            }
+        } catch {
+            print("Ошибка при парсинге JSON: \(error.localizedDescription)")
+        }
+        return nil
     }
 
     // MARK: UISceneSession Lifecycle

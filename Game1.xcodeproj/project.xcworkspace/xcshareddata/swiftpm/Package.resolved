@@ -1,0 +1,42 @@
+{
+  "originHash" : "d96ee66af3da48c4236ade9db2982975d9d83339aaf780c5c5066a854fa62c2b",
+  "pins" : [
+    {
+      "identity" : "apphudsdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apphud/ApphudSDK",
+      "state" : {
+        "revision" : "8b0a05fabec1a202b4ea716391c40caf5bd3fb1a",
+        "version" : "3.4.0"
+      }
+    },
+    {
+      "identity" : "appmetrica-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/appmetrica/appmetrica-sdk-ios",
+      "state" : {
+        "revision" : "a303a87183464d0143e3cc2eaf09cf98a3b7d8e0",
+        "version" : "5.7.0"
+      }
+    },
+    {
+      "identity" : "kscrash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kstenerud/KSCrash",
+      "state" : {
+        "revision" : "c9b13a7ec3483c5f8c274551d5cf2feb5723c8c5",
+        "version" : "1.17.4"
+      }
+    },
+    {
+      "identity" : "onesignal-xcframework",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OneSignal/OneSignal-XCFramework",
+      "state" : {
+        "revision" : "4b1006d361811aa8f1c4d2ae0fab94a18540ff75",
+        "version" : "5.2.2"
+      }
+    }
+  ],
+  "version" : 3
+}

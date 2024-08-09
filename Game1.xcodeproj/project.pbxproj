@@ -39,6 +39,20 @@
 		1A2C604F2C642BA200CC01B2 /* buttonClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A2C604E2C642BA200CC01B2 /* buttonClick.mp3 */; };
 		1A2C60512C642BAD00CC01B2 /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A2C60502C642BAD00CC01B2 /* backgroundMusic.mp3 */; };
 		1A2C60532C642BB700CC01B2 /* gameOver.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1A2C60522C642BB700CC01B2 /* gameOver.wav */; };
+		1A2C605F2C6514F000CC01B2 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C605E2C6514F000CC01B2 /* UserDataManager.swift */; };
+		1A2C60612C65212000CC01B2 /* UserDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C60602C65212000CC01B2 /* UserDataWrapper.swift */; };
+		1A2C60632C65217600CC01B2 /* JSONCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C60622C65217600CC01B2 /* JSONCreator.swift */; };
+		1A2C60652C65275100CC01B2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C60642C65275100CC01B2 /* NetworkManager.swift */; };
+		1A2C60682C66393E00CC01B2 /* ApphudSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C60672C66393E00CC01B2 /* ApphudSDK */; };
+		1A2C606B2C663A6E00CC01B2 /* AppMetricaAdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C606A2C663A6E00CC01B2 /* AppMetricaAdSupport */; };
+		1A2C606D2C663A6E00CC01B2 /* AppMetricaCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C606C2C663A6E00CC01B2 /* AppMetricaCore */; };
+		1A2C606F2C663A6E00CC01B2 /* AppMetricaCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C606E2C663A6E00CC01B2 /* AppMetricaCrashes */; };
+		1A2C60712C663A6E00CC01B2 /* AppMetricaWebKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C60702C663A6E00CC01B2 /* AppMetricaWebKit */; };
+		1A2C60742C663BF500CC01B2 /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C60732C663BF500CC01B2 /* OneSignalExtension */; };
+		1A2C60762C663BF500CC01B2 /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C60752C663BF500CC01B2 /* OneSignalFramework */; };
+		1A2C60782C663BF500CC01B2 /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C60772C663BF500CC01B2 /* OneSignalInAppMessages */; };
+		1A2C607A2C663BF500CC01B2 /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C60792C663BF500CC01B2 /* OneSignalLocation */; };
+		1A2C607D2C664BF600CC01B2 /* ZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C607C2C664BF600CC01B2 /* ZeroViewController.swift */; };
 		1A2E33BA2C5BEAEA00F63057 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33B92C5BEAEA00F63057 /* AppDelegate.swift */; };
 		1A2E33BC2C5BEAEA00F63057 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33BB2C5BEAEA00F63057 /* SceneDelegate.swift */; };
 		1A2E33C32C5BEAEC00F63057 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2E33C22C5BEAEC00F63057 /* Assets.xcassets */; };
@@ -94,6 +108,11 @@
 		1A2C604E2C642BA200CC01B2 /* buttonClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = buttonClick.mp3; path = ../../../../../.Trash/buttonClick.mp3; sourceTree = "<group>"; };
 		1A2C60502C642BAD00CC01B2 /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = backgroundMusic.mp3; path = ../../../../../.Trash/backgroundMusic.mp3; sourceTree = "<group>"; };
 		1A2C60522C642BB700CC01B2 /* gameOver.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = gameOver.wav; path = ../../../../../.Trash/gameOver.wav; sourceTree = "<group>"; };
+		1A2C605E2C6514F000CC01B2 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
+		1A2C60602C65212000CC01B2 /* UserDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataWrapper.swift; sourceTree = "<group>"; };
+		1A2C60622C65217600CC01B2 /* JSONCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCreator.swift; sourceTree = "<group>"; };
+		1A2C60642C65275100CC01B2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		1A2C607C2C664BF600CC01B2 /* ZeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroViewController.swift; sourceTree = "<group>"; };
 		1A2E33B62C5BEAEA00F63057 /* Game1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A2E33B92C5BEAEA00F63057 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A2E33BB2C5BEAEA00F63057 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +142,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A2C606F2C663A6E00CC01B2 /* AppMetricaCrashes in Frameworks */,
+				1A2C60742C663BF500CC01B2 /* OneSignalExtension in Frameworks */,
+				1A2C60762C663BF500CC01B2 /* OneSignalFramework in Frameworks */,
+				1A2C606D2C663A6E00CC01B2 /* AppMetricaCore in Frameworks */,
+				1A2C607A2C663BF500CC01B2 /* OneSignalLocation in Frameworks */,
+				1A2C60682C66393E00CC01B2 /* ApphudSDK in Frameworks */,
+				1A2C60712C663A6E00CC01B2 /* AppMetricaWebKit in Frameworks */,
+				1A2C60782C663BF500CC01B2 /* OneSignalInAppMessages in Frameworks */,
+				1A2C606B2C663A6E00CC01B2 /* AppMetricaAdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,11 +258,30 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		1A2C60562C64FAA600CC01B2 /* Networking */ = {
+		1A2C605C2C6513EA00CC01B2 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
 			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		1A2C605D2C6514D500CC01B2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1A2C605E2C6514F000CC01B2 /* UserDataManager.swift */,
+				1A2C60602C65212000CC01B2 /* UserDataWrapper.swift */,
+				1A2C60622C65217600CC01B2 /* JSONCreator.swift */,
+				1A2C60642C65275100CC01B2 /* NetworkManager.swift */,
+			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		1A2C607B2C664BA300CC01B2 /* ZeroView */ = {
+			isa = PBXGroup;
+			children = (
+				1A2C607C2C664BF600CC01B2 /* ZeroViewController.swift */,
+			);
+			path = ZeroView;
 			sourceTree = "<group>";
 		};
 		1A2E33AD2C5BEAEA00F63057 = {
@@ -267,7 +314,8 @@
 		1A2E33CD2C5BEBC200F63057 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1A2C60562C64FAA600CC01B2 /* Networking */,
+				1A2C605D2C6514D500CC01B2 /* Networking */,
+				1A2C605C2C6513EA00CC01B2 /* New Group */,
 				1A2C60552C642CC000CC01B2 /* Resources */,
 				1A2C60542C642BD500CC01B2 /* Support */,
 				1A2C60492C642B8500CC01B2 /* Sounds */,
@@ -282,6 +330,7 @@
 		1A2E33CE2C5BEBC800F63057 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1A2C607B2C664BA300CC01B2 /* ZeroView */,
 				1A2C601F2C63E57100CC01B2 /* ShopView */,
 				1A1077712C628D6100F7DA30 /* GameOverView */,
 				1A10776C2C6173BE00F7DA30 /* PauseView */,
@@ -382,6 +431,15 @@
 			);
 			name = Game1;
 			packageProductDependencies = (
+				1A2C60672C66393E00CC01B2 /* ApphudSDK */,
+				1A2C606A2C663A6E00CC01B2 /* AppMetricaAdSupport */,
+				1A2C606C2C663A6E00CC01B2 /* AppMetricaCore */,
+				1A2C606E2C663A6E00CC01B2 /* AppMetricaCrashes */,
+				1A2C60702C663A6E00CC01B2 /* AppMetricaWebKit */,
+				1A2C60732C663BF500CC01B2 /* OneSignalExtension */,
+				1A2C60752C663BF500CC01B2 /* OneSignalFramework */,
+				1A2C60772C663BF500CC01B2 /* OneSignalInAppMessages */,
+				1A2C60792C663BF500CC01B2 /* OneSignalLocation */,
 			);
 			productName = Game1;
 			productReference = 1A2E33B62C5BEAEA00F63057 /* Game1.app */;
@@ -412,6 +470,9 @@
 			);
 			mainGroup = 1A2E33AD2C5BEAEA00F63057;
 			packageReferences = (
+				1A2C60662C66393E00CC01B2 /* XCRemoteSwiftPackageReference "ApphudSDK" */,
+				1A2C60692C663A6D00CC01B2 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */,
+				1A2C60722C663BF500CC01B2 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
 			);
 			productRefGroup = 1A2E33B72C5BEAEA00F63057 /* Products */;
 			projectDirPath = "";
@@ -465,10 +526,12 @@
 				1A2C60292C64071900CC01B2 /* CannonBoxSet.swift in Sources */,
 				1A2E34092C611E1C00F63057 /* GameView.swift in Sources */,
 				1A2E33D62C5BEEC200F63057 /* Resources.swift in Sources */,
+				1A2C607D2C664BF600CC01B2 /* ZeroViewController.swift in Sources */,
 				1A2E33FC2C6019B500F63057 /* LevelsVC + CollectionView.swift in Sources */,
 				1A2C603F2C642A3E00CC01B2 /* ShopVC + Animation.swift in Sources */,
 				1A2E33EB2C5FEDB500F63057 /* MainView.swift in Sources */,
 				1A2C60272C63FFDF00CC01B2 /* UtilsTableViewCell.swift in Sources */,
+				1A2C60612C65212000CC01B2 /* UserDataWrapper.swift in Sources */,
 				1A2C601C2C63CB4200CC01B2 /* SettingsVC + Action.swift in Sources */,
 				1A1077772C62A15B00F7DA30 /* GameVC + GameScene.swift in Sources */,
 				1A2C602B2C64077100CC01B2 /* ShopManager.swift in Sources */,
@@ -480,14 +543,17 @@
 				1A2E33BC2C5BEAEA00F63057 /* SceneDelegate.swift in Sources */,
 				1A2C60142C63A48200CC01B2 /* GameScene + Moving.swift in Sources */,
 				1A2E33D42C5BEBF200F63057 /* MainViewController.swift in Sources */,
+				1A2C60652C65275100CC01B2 /* NetworkManager.swift in Sources */,
 				1A2C600F2C62E2A400CC01B2 /* LevelManager.swift in Sources */,
 				1A1077752C6294DA00F7DA30 /* GameOverView.swift in Sources */,
+				1A2C60632C65217600CC01B2 /* JSONCreator.swift in Sources */,
 				1A2C602D2C640E2A00CC01B2 /* ShopVC + Action.swift in Sources */,
 				1A2E33E72C5D1EA300F63057 /* SettingsViewController.swift in Sources */,
 				1A2C60112C62E34100CC01B2 /* LevelsViewModel.swift in Sources */,
 				1A2C60412C642A7B00CC01B2 /* LevelsVC + Animation.swift in Sources */,
 				1A2C601A2C63C9F400CC01B2 /* PauseVC + Action.swift in Sources */,
 				1A2C603D2C64210B00CC01B2 /* AudioManager.swift in Sources */,
+				1A2C605F2C6514F000CC01B2 /* UserDataManager.swift in Sources */,
 				1A2C60212C63E5C500CC01B2 /* ShopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,7 +696,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -646,7 +712,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aleks.id;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -658,7 +726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -674,7 +742,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = aleks.id;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -703,6 +773,81 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A2C60662C66393E00CC01B2 /* XCRemoteSwiftPackageReference "ApphudSDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apphud/ApphudSDK";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.0;
+			};
+		};
+		1A2C60692C663A6D00CC01B2 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/appmetrica/appmetrica-sdk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
+		1A2C60722C663BF500CC01B2 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A2C60672C66393E00CC01B2 /* ApphudSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2C60662C66393E00CC01B2 /* XCRemoteSwiftPackageReference "ApphudSDK" */;
+			productName = ApphudSDK;
+		};
+		1A2C606A2C663A6E00CC01B2 /* AppMetricaAdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2C60692C663A6D00CC01B2 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaAdSupport;
+		};
+		1A2C606C2C663A6E00CC01B2 /* AppMetricaCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2C60692C663A6D00CC01B2 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaCore;
+		};
+		1A2C606E2C663A6E00CC01B2 /* AppMetricaCrashes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2C60692C663A6D00CC01B2 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaCrashes;
+		};
+		1A2C60702C663A6E00CC01B2 /* AppMetricaWebKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2C60692C663A6D00CC01B2 /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaWebKit;
+		};
+		1A2C60732C663BF500CC01B2 /* OneSignalExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2C60722C663BF500CC01B2 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalExtension;
+		};
+		1A2C60752C663BF500CC01B2 /* OneSignalFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2C60722C663BF500CC01B2 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalFramework;
+		};
+		1A2C60772C663BF500CC01B2 /* OneSignalInAppMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2C60722C663BF500CC01B2 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalInAppMessages;
+		};
+		1A2C60792C663BF500CC01B2 /* OneSignalLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A2C60722C663BF500CC01B2 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalLocation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A2E33AE2C5BEAEA00F63057 /* Project object */;
 }
