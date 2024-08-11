@@ -8,11 +8,15 @@
 import Foundation
 import UIKit
 class UserDataManager {
+    
+    //MARK: - Properties
     static let shared = UserDataManager()
     
+    //MARK: - Initialize
     private init() {}
     
-//    Состояние VPN    
+    //MARK: - Methods
+//    Состояние VPN
     public func vivisWork() -> Bool{
         if let settings = CFNetworkCopySystemProxySettings()?.takeRetainedValue() as? Dictionary<String, Any>,
                 let scopes = settings["__SCOPED__"] as? [String:Any] {

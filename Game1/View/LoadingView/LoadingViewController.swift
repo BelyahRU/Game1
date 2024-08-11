@@ -11,6 +11,8 @@ import UIKit
 class LoadingViewController: UIViewController {
     
     // MARK: - Properties
+    public var isLoaded: Bool = false
+    
     private let background: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: Resources.Back.mainBackground)
@@ -34,11 +36,20 @@ class LoadingViewController: UIViewController {
         progressView.makeBordersColor(color: Resources.Colors.darkRedColor.cgColor)
         return progressView
     }()
-
+    
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            self.applyGradientToProgressBarTrack()
+            self.startLoadingAnimation()
+        }
     }
     
     // MARK: - Methods
@@ -46,10 +57,6 @@ class LoadingViewController: UIViewController {
         view.backgroundColor = .white
         setupSubviews()
         setupConstraints()
-        DispatchQueue.main.async {
-            self.applyGradientToProgressBarTrack()
-            self.startLoadingAnimation()
-        }
     }
 
     private func setupSubviews() {
@@ -97,19 +104,13 @@ class LoadingViewController: UIViewController {
     }
 
     private func startLoadingAnimation() {
-        progressBar.setProgress(0.5, animated: false)
+        progressBar.setProgress(0.0, animated: false)
         UIView.animate(withDuration: 4.0, animations: {
             self.progressBar.setProgress(1.0, animated: true)
         })
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.presentMainContent()
+            self.isLoaded = true
         }
-    }
-    
-    private func presentMainContent() {
-        let mainViewController = MainViewController() // Ваш основной контроллер
-        mainViewController.modalTransitionStyle = .crossDissolve
-        mainViewController.modalPresentationStyle = .fullScreen
-        self.present(mainViewController, animated: true, completion: nil)
+        
     }
 }

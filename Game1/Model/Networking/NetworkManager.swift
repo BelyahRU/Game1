@@ -6,91 +6,110 @@
 //
 
 import Foundation
-import Foundation
 
+enum NetworkManagerError: Error {
+    case incorrectURL
+    case invaildResponse
+    case noDataReceived
+    case JSONSerializationError(Error)
+    case dataTaskError(Error)
+    case unknownError
+    
+    var localizedDescription: String {
+        switch self {
+        case .incorrectURL:
+            return "NetworkManegerError:   Invalid URL."
+        case .invaildResponse:
+            return "NetworkManegerError:   Request failed with error."
+        case .noDataReceived:
+            return "NetworkManegerError:   Invalid response from server.Incorrect status code"
+        case .JSONSerializationError(let error):
+            return "NetworkManegerError:   Invalid json data: \(error.localizedDescription)"
+        case .dataTaskError(let error):
+            return "NetworkManegerError:   DataTask error: \(error.localizedDescription)"
+        case .unknownError:
+            return "NetworkManegerError:   UnknownError"
+        }
+    }
+}
+    
 class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
     
+    //MARK: POST
     public func sendPostRequest(urlString: String, jsonData: Data, completion: @escaping (Result<[String: Any], Error>) -> Void) {
         guard let url = URL(string: urlString) else {
-            completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Некорректный URL"])))
+            completion(.failure(NetworkManagerError.incorrectURL))
             return
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.setValue(token, forHTTPHeaderField: "Authorization")
         request.httpBody = jsonData
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(NetworkManagerError.dataTaskError(error)))
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
                 let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
-                let error = NSError(domain: "", code: statusCode, userInfo: [NSLocalizedDescriptionKey: "Invalid response from server"])
-                completion(.failure(error))
+                completion(.failure(NetworkManagerError.invaildResponse))
                 return
             }
             
             guard let data = data else {
-                completion(.failure(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+                completion(.failure(NetworkManagerError.noDataReceived))
                 return
             }
             
             do {
                 let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                print("NetworkManeger:   GET request is SUCCESS")
                 completion(.success(jsonObject ?? [:]))
             } catch {
-                completion(.failure(error))
+                completion(.failure(NetworkManagerError.JSONSerializationError(error)))
             }
         }
         
         task.resume()
     }
-
     
+    //MARK: GET
     func performGetRequest(urlString: String, completion: @escaping (Result<Any, Error>) -> Void) {
-        // Проверяем корректность URL
         guard let url = URL(string: urlString) else {
-            print("Некорректный URL")
+            completion(.failure(NetworkManagerError.incorrectURL))
             return
         }
-        // Создаем запрос
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        // Выполняем запрос
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            // Проверяем на ошибки
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(NetworkManagerError.dataTaskError(error)))
                 return
             }
-            // Проверяем статус-код ответа
             if let httpResponse = response as? HTTPURLResponse {
-                print("Статус-код: \(httpResponse.statusCode)")
                 if let data = data, httpResponse.statusCode == 200 {
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        print("NetworkManeger:   GET request is SUCCESS")
                         completion(.success(json))
                     } catch {
-                        completion(.failure(error))
+                        completion(.failure(NetworkManagerError.dataTaskError(error)))
                     }
                 } else if let data = data {
-                    // Если запрос не успешен, возвращаем ошибку с текстом ответа
-                    let errorMessage = String(data: data, encoding: .utf8) ?? "Unknown error"
-                    let error = NSError(domain: "", code: httpResponse.statusCode, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                    completion(.failure(error))
+                    completion(.failure(NetworkManagerError.unknownError))
                 }
             }
         }
         task.resume()
     }
     
-    
 }
+
+        
+        
+

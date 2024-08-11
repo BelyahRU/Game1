@@ -42,7 +42,6 @@ extension LevelsViewController:  UICollectionViewDataSource, UICollectionViewDel
         }
         let level = viewModel.getLevel(by: indexPath.row + 1)
         cell.setupCell(level: level)
-        print(level!, indexPath)
         return cell
     }
 

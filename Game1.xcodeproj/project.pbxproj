@@ -53,6 +53,7 @@
 		1A2C60782C663BF500CC01B2 /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C60772C663BF500CC01B2 /* OneSignalInAppMessages */; };
 		1A2C607A2C663BF500CC01B2 /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = 1A2C60792C663BF500CC01B2 /* OneSignalLocation */; };
 		1A2C607D2C664BF600CC01B2 /* ZeroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C607C2C664BF600CC01B2 /* ZeroViewController.swift */; };
+		1A2C607F2C678CC900CC01B2 /* BackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C607E2C678CC900CC01B2 /* BackManager.swift */; };
 		1A2E33BA2C5BEAEA00F63057 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33B92C5BEAEA00F63057 /* AppDelegate.swift */; };
 		1A2E33BC2C5BEAEA00F63057 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2E33BB2C5BEAEA00F63057 /* SceneDelegate.swift */; };
 		1A2E33C32C5BEAEC00F63057 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2E33C22C5BEAEC00F63057 /* Assets.xcassets */; };
@@ -113,6 +114,7 @@
 		1A2C60622C65217600CC01B2 /* JSONCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCreator.swift; sourceTree = "<group>"; };
 		1A2C60642C65275100CC01B2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1A2C607C2C664BF600CC01B2 /* ZeroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroViewController.swift; sourceTree = "<group>"; };
+		1A2C607E2C678CC900CC01B2 /* BackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackManager.swift; sourceTree = "<group>"; };
 		1A2E33B62C5BEAEA00F63057 /* Game1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A2E33B92C5BEAEA00F63057 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A2E33BB2C5BEAEA00F63057 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -258,16 +260,10 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		1A2C605C2C6513EA00CC01B2 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		1A2C605D2C6514D500CC01B2 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				1A2C607E2C678CC900CC01B2 /* BackManager.swift */,
 				1A2C605E2C6514F000CC01B2 /* UserDataManager.swift */,
 				1A2C60602C65212000CC01B2 /* UserDataWrapper.swift */,
 				1A2C60622C65217600CC01B2 /* JSONCreator.swift */,
@@ -315,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				1A2C605D2C6514D500CC01B2 /* Networking */,
-				1A2C605C2C6513EA00CC01B2 /* New Group */,
 				1A2C60552C642CC000CC01B2 /* Resources */,
 				1A2C60542C642BD500CC01B2 /* Support */,
 				1A2C60492C642B8500CC01B2 /* Sounds */,
@@ -524,6 +519,7 @@
 				1A1077852C62B24600F7DA30 /* GameScene + levels.swift in Sources */,
 				1A2E33E92C5FE55800F63057 /* SettingsView.swift in Sources */,
 				1A2C60292C64071900CC01B2 /* CannonBoxSet.swift in Sources */,
+				1A2C607F2C678CC900CC01B2 /* BackManager.swift in Sources */,
 				1A2E34092C611E1C00F63057 /* GameView.swift in Sources */,
 				1A2E33D62C5BEEC200F63057 /* Resources.swift in Sources */,
 				1A2C607D2C664BF600CC01B2 /* ZeroViewController.swift in Sources */,

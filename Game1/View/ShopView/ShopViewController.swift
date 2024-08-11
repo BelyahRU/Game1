@@ -24,10 +24,6 @@ class ShopViewController: UIViewController {
     
     // MARK: - Methods
     private func configure() {
-//        if let bundleID = Bundle.main.bundleIdentifier {
-//                UserDefaults.standard.removePersistentDomain(forName: bundleID)
-//                UserDefaults.standard.synchronize()
-//            }
         setupButton()
         setupCoins()
         setupTableView()

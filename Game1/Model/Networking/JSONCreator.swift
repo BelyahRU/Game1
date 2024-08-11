@@ -6,11 +6,13 @@
 //
 
 import Foundation
+
 class JSONCreator {
-    static let shared = JSONCreator()
+    static let shared = JSONCreator() //Singletone
     
     private init() {}
     
+    // MARK: - Encoding data
     func createUserData() -> Data? {
         let userDataManager = UserDataManager.shared
         
@@ -43,22 +45,24 @@ class JSONCreator {
 
         do {
             let jsonData = try encoder.encode(userDataWrapper)
+            print("JSONCreator: Successfully encoding")
             return jsonData
         } catch {
-            print("Ошибка при кодировании JSON: \(error)")
+            print("JSONCreator: Encoding JSON error: \(error)")
             return nil
         }
     }
     
-    // Метод для декодирования JSON данных
+    // MARK: - Decoding data
         func decodeUserData(from jsonData: Data) -> UserData? {
             let decoder = JSONDecoder()
             
             do {
                 let userDataWrapper = try decoder.decode(UserDataWrapper.self, from: jsonData)
+                print("JSONCreator: Successfully decoding")
                 return userDataWrapper.userData
             } catch {
-                print("Ошибка при декодировании JSON: \(error)")
+                print("JSONCreator: Dencoding JSON error: \(error)")
                 return nil
             }
         }

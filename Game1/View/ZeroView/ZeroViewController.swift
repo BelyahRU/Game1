@@ -10,27 +10,33 @@ import UIKit
 import WebKit
 
 class ZeroViewController: UIViewController, WKNavigationDelegate {
-    
+
+    // MARK: - Properties
     var webView: WKWebView!
     var isPageLoaded = false
 
+    // MARK: - Initialize
     init(urlString: String) {
         super.init(nibName: nil, bundle: nil)
         setupUI()
         setupUrl(urlString: urlString)
+        observeScreenCapture()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
+    // MARK: - Methods
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("Страница загружена")
         isPageLoaded = true
     }
-    
+
     private func setupUrl(urlString: String) {
         // Загрузка URL
         if let url = URL(string: urlString) {
@@ -41,10 +47,11 @@ class ZeroViewController: UIViewController, WKNavigationDelegate {
             webView.load(request)
         }
     }
+
     private func setupUI() {
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.websiteDataStore = WKWebsiteDataStore.default() //для сохранения куки
-        
+
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.navigationDelegate = self
         view.addSubview(webView)
@@ -57,5 +64,27 @@ class ZeroViewController: UIViewController, WKNavigationDelegate {
             webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-}
+    
+    private func observeScreenCapture() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didDetectScreenCapture), name: UIScreen.capturedDidChangeNotification, object: nil)
+    }
+    
+    @objc private func didDetectScreenCapture() {
+        if UIScreen.main.isCaptured {
+            webView.isHidden = true
+            showAlert()
+        } else {
+            webView.isHidden = false
+        }
+    }
 
+    private func showAlert() {
+        let alert = UIAlertController(title: "Screen Capture Detected", message: "Screen recording or screenshot is not allowed in this app.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIScreen.capturedDidChangeNotification, object: nil)
+    }
+}

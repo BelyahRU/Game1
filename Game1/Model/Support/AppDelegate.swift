@@ -21,10 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     private func setupSDK() {
-//       OneSignal.initialize(<#T##newAppId: String##String#>, withLaunchOptions: <#T##[AnyHashable : Any]?#>)
         let configuration = AppMetricaConfiguration.init(apiKey: "6064a64d-29c3-4be8-b1ad-161d2734c2a0")
         AppMetrica.activate(with: configuration!)
-
+        OneSignal.initialize("0bbdce7c-682a-4105-a585-07791af20111", withLaunchOptions: nil)
     }
     
     
