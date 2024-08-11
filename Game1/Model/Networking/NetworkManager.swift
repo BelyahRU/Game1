@@ -56,7 +56,7 @@ class NetworkManager {
             }
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-                let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
+//                let statusCode = (response as? HTTPURLResponse)?.statusCode ?? 0
                 completion(.failure(NetworkManagerError.invaildResponse))
                 return
             }
@@ -100,7 +100,7 @@ class NetworkManager {
                     } catch {
                         completion(.failure(NetworkManagerError.dataTaskError(error)))
                     }
-                } else if let data = data {
+                } else if let _ = data {
                     completion(.failure(NetworkManagerError.unknownError))
                 }
             }

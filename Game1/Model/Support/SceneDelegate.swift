@@ -22,6 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, InitialViewDelegate {
         setupLoadingView()
         let manager = BackManager()
         manager.sceneDelegate = self
+//        UserDefaults.standard.setValue(1, forKey: "hasNoParent")
+//        UserDefaults.standard.removeObject(forKey: "savedURL")
+//        UserDefaults.standard.removeObject(forKey: "isNotFirstTime")
+
 
     }
     
@@ -43,9 +47,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, InitialViewDelegate {
         }
     }
     
+//        if let bundleID = Bundle.main.bundleIdentifier {
+//                UserDefaults.standard.removePersistentDomain(forName: bundleID)
+//                UserDefaults.standard.synchronize()
+//            }
     //MARK: - ZeroViewController
     func setupZeroView() {
         let urlString = UserDefaults.standard.string(forKey: "savedURL") ?? "https://www.google.com"
+        print("SceneDelegate: \(urlString)")
         let vc = ZeroViewController(urlString: urlString)
         window?.makeKeyAndVisible()
         window?.rootViewController = vc

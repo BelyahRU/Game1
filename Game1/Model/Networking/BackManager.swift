@@ -22,7 +22,7 @@ final class BackManager {
     var lastDate: Date! // remote config
     var jsonResponse: [String: Any] = [:]
     var isBlock: Bool! // remote config
-    var isResetUrlLink: Bool! // remote config
+    var isResetUrlLink: Int? // remote config
     
     //MARK: - Initialize
     init() {
@@ -39,7 +39,7 @@ final class BackManager {
                 if hasNoParentSaved == 0 {
                     print("BackManager:   'has_no_parent' was saved and equal to 0")
                     DispatchQueue.main.async {
-                        self.setupZeroView()
+                        self.setupUI(hasNoParent: 0)
                     }
                 } else {
                     //POST
@@ -66,6 +66,7 @@ final class BackManager {
                     }
                 }
             } else {
+                print("BackManager:   lastDate > current ")
                 DispatchQueue.main.async {
                     self.setupLoadingView()
                 }
@@ -82,12 +83,16 @@ final class BackManager {
             //в первый ли раз заходим
             UserDefaults.standard.set(hasNoParent, forKey: "hasNoParent")
             print("BackManager:   'has_no_parent' was saved")
-            if UserDefaults.standard.bool(forKey: "isNotFirstTime") {
-                print("BackManager:   It is first lounch")
-                if isResetUrlLink {
-                    //запускать страховку?
-                    print("BackManager:   Resetting URL")
-                    UserDefaults.standard.set(urlRemoteConfig, forKey: "savedURL")
+            let isNotFirstTime = UserDefaults.standard.bool(forKey: "isNotFirstTime")
+            print(isNotFirstTime)
+            if isNotFirstTime {
+                print("BackManager: is not first lounching")
+                if let isReset = isResetUrlLink {
+                    if isReset == 1 {
+                        //запускать страховку?
+                        print("BackManager:   Resetting URL")
+                        UserDefaults.standard.set(urlRemoteConfig, forKey: "savedURL")
+                    }
                 }
                 setupZeroView()
             } else {
@@ -141,14 +146,17 @@ final class BackManager {
     //MARK: - Remote Config properties
     private func setupIsBlock() {
         self.isBlock = jsonResponse["isBlock"] as? Bool
+        print("BackManager:  isBlock: \(String(describing: self.isBlock))")
     }
     
     private func setupURL() {
         self.urlRemoteConfig = jsonResponse["urlLink"] as! String
+        print("BackManager:  urlLink: \(self.urlRemoteConfig)")
     }
     
     private func setupIsResetUrlLink() {
-        self.isResetUrlLink = jsonResponse["urlLink"] as? Bool
+        self.isResetUrlLink = Int(jsonResponse["isResetUrlLink"] as! String) ?? 0
+        print("BackManager:  urlLink: \(String(describing: self.isResetUrlLink))")
     }
     
     private func setupDate() {
@@ -198,7 +206,7 @@ final class BackManager {
         let timeoutInterval: TimeInterval = 7
         DispatchQueue.global().asyncAfter(deadline: .now() + timeoutInterval) {
             timeoutReached = true
-            dispatchGroup.leave()
+//            dispatchGroup.leave()
         }
         
         // Ожидаем завершения запросов и таймера

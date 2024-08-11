@@ -39,6 +39,7 @@ class ZeroViewController: UIViewController, WKNavigationDelegate {
 
     private func setupUrl(urlString: String) {
         // Загрузка URL
+        print(urlString)
         if let url = URL(string: urlString) {
             let request = URLRequest(url: url)
             webView.load(request)
